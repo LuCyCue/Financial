@@ -1,0 +1,829 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FED937E6F6F6627D275C1C7 /* libPods-PersonFinancial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D669ACD0A79B68B5277437EA /* libPods-PersonFinancial.a */; };
+		3A00CB1D1FF3CA0A0033819C /* FinancialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */; };
+		3A00CB1E1FF3CA0A0033819C /* FinancialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */; };
+		3A00CB211FF3D3700033819C /* FinancialDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A00CB201FF3D3700033819C /* FinancialDetailViewController.m */; };
+		3A00CB241FF3D6230033819C /* DisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A00CB231FF3D6230033819C /* DisplayModel.m */; };
+		3A21655D1FEBF73A005C0276 /* CCShowMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21655B1FEBF73A005C0276 /* CCShowMessage.m */; };
+		3A6BC4691FFA5FCD00B46957 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BC4671FFA5FCD00B46957 /* DataBase.m */; };
+		3AB8BB9C1FFD080A00C3E030 /* cc_NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8BB9B1FFD080A00C3E030 /* cc_NavigationViewController.m */; };
+		3AB8BB9F1FFD1B0500C3E030 /* UITextField+BirthDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8BB9D1FFD1B0400C3E030 /* UITextField+BirthDay.m */; };
+		3ABD396D1FEAA76F00708145 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD396C1FEAA76F00708145 /* AppDelegate.m */; };
+		3ABD39731FEAA76F00708145 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD39711FEAA76F00708145 /* Main.storyboard */; };
+		3ABD39751FEAA76F00708145 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD39741FEAA76F00708145 /* Assets.xcassets */; };
+		3ABD39781FEAA76F00708145 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD39761FEAA76F00708145 /* LaunchScreen.storyboard */; };
+		3ABD397B1FEAA76F00708145 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD397A1FEAA76F00708145 /* main.m */; };
+		3ABD39851FEAA76F00708145 /* PersonFinancialTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD39841FEAA76F00708145 /* PersonFinancialTests.m */; };
+		3ABD39901FEAA76F00708145 /* PersonFinancialUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD398F1FEAA76F00708145 /* PersonFinancialUITests.m */; };
+		3ABD39AA1FEAB4A200708145 /* LoginViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD39A71FEAB4A200708145 /* LoginViewViewController.m */; };
+		3ABD39AD1FEAB52F00708145 /* PasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD39AC1FEAB52F00708145 /* PasswordView.m */; };
+		3ABD39B01FEAB66200708145 /* RoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD39AF1FEAB66200708145 /* RoundView.m */; };
+		3AF9F0561FF5222500427A7C /* FinancialDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9F0541FF5222500427A7C /* FinancialDetailTableViewCell.m */; };
+		3AF9F0571FF5222500427A7C /* FinancialDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF9F0551FF5222500427A7C /* FinancialDetailTableViewCell.xib */; };
+		3AF9F05B1FF532C600427A7C /* RemaksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF9F0591FF532C600427A7C /* RemaksCell.m */; };
+		3AF9F05C1FF532C600427A7C /* RemaksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AF9F05A1FF532C600427A7C /* RemaksCell.xib */; };
+		3AFDC21B1FF1284800FBB85D /* FinancialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFDC21A1FF1284800FBB85D /* FinancialViewController.m */; };
+		3AFDC21E1FF128BF00FBB85D /* FinancialDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFDC21D1FF128BF00FBB85D /* FinancialDetail.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3ABD39811FEAA76F00708145 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ABD39601FEAA76F00708145 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3ABD39671FEAA76F00708145;
+			remoteInfo = PersonFinancial;
+		};
+		3ABD398C1FEAA76F00708145 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ABD39601FEAA76F00708145 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3ABD39671FEAA76F00708145;
+			remoteInfo = PersonFinancial;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A00CB1A1FF3CA0A0033819C /* FinancialTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinancialTableViewCell.h; sourceTree = "<group>"; };
+		3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinancialTableViewCell.m; sourceTree = "<group>"; };
+		3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinancialTableViewCell.xib; sourceTree = "<group>"; };
+		3A00CB1F1FF3D3700033819C /* FinancialDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinancialDetailViewController.h; sourceTree = "<group>"; };
+		3A00CB201FF3D3700033819C /* FinancialDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinancialDetailViewController.m; sourceTree = "<group>"; };
+		3A00CB221FF3D6230033819C /* DisplayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayModel.h; sourceTree = "<group>"; };
+		3A00CB231FF3D6230033819C /* DisplayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayModel.m; sourceTree = "<group>"; };
+		3A21655B1FEBF73A005C0276 /* CCShowMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCShowMessage.m; sourceTree = "<group>"; };
+		3A21655C1FEBF73A005C0276 /* CCShowMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCShowMessage.h; sourceTree = "<group>"; };
+		3A6BC4671FFA5FCD00B46957 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
+		3A6BC4681FFA5FCD00B46957 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
+		3AB8BB9A1FFD080A00C3E030 /* cc_NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cc_NavigationViewController.h; sourceTree = "<group>"; };
+		3AB8BB9B1FFD080A00C3E030 /* cc_NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cc_NavigationViewController.m; sourceTree = "<group>"; };
+		3AB8BB9D1FFD1B0400C3E030 /* UITextField+BirthDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BirthDay.m"; sourceTree = "<group>"; };
+		3AB8BB9E1FFD1B0500C3E030 /* UITextField+BirthDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+BirthDay.h"; sourceTree = "<group>"; };
+		3ABD39681FEAA76F00708145 /* PersonFinancial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonFinancial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ABD396B1FEAA76F00708145 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3ABD396C1FEAA76F00708145 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3ABD39721FEAA76F00708145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3ABD39741FEAA76F00708145 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3ABD39771FEAA76F00708145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3ABD39791FEAA76F00708145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ABD397A1FEAA76F00708145 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3ABD39801FEAA76F00708145 /* PersonFinancialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonFinancialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ABD39841FEAA76F00708145 /* PersonFinancialTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonFinancialTests.m; sourceTree = "<group>"; };
+		3ABD39861FEAA76F00708145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ABD398B1FEAA76F00708145 /* PersonFinancialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonFinancialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ABD398F1FEAA76F00708145 /* PersonFinancialUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonFinancialUITests.m; sourceTree = "<group>"; };
+		3ABD39911FEAA76F00708145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ABD39A61FEAB4A200708145 /* LoginViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewViewController.h; sourceTree = "<group>"; };
+		3ABD39A71FEAB4A200708145 /* LoginViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewViewController.m; sourceTree = "<group>"; };
+		3ABD39AB1FEAB52F00708145 /* PasswordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PasswordView.h; sourceTree = "<group>"; };
+		3ABD39AC1FEAB52F00708145 /* PasswordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasswordView.m; sourceTree = "<group>"; };
+		3ABD39AE1FEAB66200708145 /* RoundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundView.h; sourceTree = "<group>"; };
+		3ABD39AF1FEAB66200708145 /* RoundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundView.m; sourceTree = "<group>"; };
+		3AF9F0531FF5222500427A7C /* FinancialDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinancialDetailTableViewCell.h; sourceTree = "<group>"; };
+		3AF9F0541FF5222500427A7C /* FinancialDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinancialDetailTableViewCell.m; sourceTree = "<group>"; };
+		3AF9F0551FF5222500427A7C /* FinancialDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinancialDetailTableViewCell.xib; sourceTree = "<group>"; };
+		3AF9F0581FF532C600427A7C /* RemaksCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemaksCell.h; sourceTree = "<group>"; };
+		3AF9F0591FF532C600427A7C /* RemaksCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemaksCell.m; sourceTree = "<group>"; };
+		3AF9F05A1FF532C600427A7C /* RemaksCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemaksCell.xib; sourceTree = "<group>"; };
+		3AFDC2191FF1284800FBB85D /* FinancialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinancialViewController.h; sourceTree = "<group>"; };
+		3AFDC21A1FF1284800FBB85D /* FinancialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinancialViewController.m; sourceTree = "<group>"; };
+		3AFDC21C1FF128BF00FBB85D /* FinancialDetail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinancialDetail.h; sourceTree = "<group>"; };
+		3AFDC21D1FF128BF00FBB85D /* FinancialDetail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinancialDetail.m; sourceTree = "<group>"; };
+		3AFDC21F1FF130D000FBB85D /* PersonFinancial.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonFinancial.pch; sourceTree = "<group>"; };
+		49B4413724315FFCE81DD5B9 /* Pods-PersonFinancial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonFinancial.release.xcconfig"; path = "Pods/Target Support Files/Pods-PersonFinancial/Pods-PersonFinancial.release.xcconfig"; sourceTree = "<group>"; };
+		CD0D3A0FDB50ED2FD5273A65 /* Pods-PersonFinancial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersonFinancial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PersonFinancial/Pods-PersonFinancial.debug.xcconfig"; sourceTree = "<group>"; };
+		D669ACD0A79B68B5277437EA /* libPods-PersonFinancial.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PersonFinancial.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3ABD39651FEAA76F00708145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FED937E6F6F6627D275C1C7 /* libPods-PersonFinancial.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABD397D1FEAA76F00708145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABD39881FEAA76F00708145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A2165591FEBF73A005C0276 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				3A6BC4661FFA5FCD00B46957 /* DB */,
+				3A21655A1FEBF73A005C0276 /* Tools */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		3A21655A1FEBF73A005C0276 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3A21655B1FEBF73A005C0276 /* CCShowMessage.m */,
+				3A21655C1FEBF73A005C0276 /* CCShowMessage.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3A6BC4661FFA5FCD00B46957 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				3A6BC4671FFA5FCD00B46957 /* DataBase.m */,
+				3A6BC4681FFA5FCD00B46957 /* DataBase.h */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		3AB8BB991FFD07D600C3E030 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3AB8BB9A1FFD080A00C3E030 /* cc_NavigationViewController.h */,
+				3AB8BB9B1FFD080A00C3E030 /* cc_NavigationViewController.m */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		3ABD395F1FEAA76F00708145 = {
+			isa = PBXGroup;
+			children = (
+				3ABD396A1FEAA76F00708145 /* PersonFinancial */,
+				3ABD39831FEAA76F00708145 /* PersonFinancialTests */,
+				3ABD398E1FEAA76F00708145 /* PersonFinancialUITests */,
+				3ABD39691FEAA76F00708145 /* Products */,
+				7F0FFF952C04C5790B3110CE /* Pods */,
+				66BDDDA14CD5910117BCDF75 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3ABD39691FEAA76F00708145 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3ABD39681FEAA76F00708145 /* PersonFinancial.app */,
+				3ABD39801FEAA76F00708145 /* PersonFinancialTests.xctest */,
+				3ABD398B1FEAA76F00708145 /* PersonFinancialUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3ABD396A1FEAA76F00708145 /* PersonFinancial */ = {
+			isa = PBXGroup;
+			children = (
+				3AB8BB991FFD07D600C3E030 /* MainViewController */,
+				3AFDC2151FF126B400FBB85D /* FinancialViewController */,
+				3A2165591FEBF73A005C0276 /* Other */,
+				3ABD39A11FEAB3C300708145 /* LoginViewController */,
+				3ABD396B1FEAA76F00708145 /* AppDelegate.h */,
+				3ABD396C1FEAA76F00708145 /* AppDelegate.m */,
+				3ABD39711FEAA76F00708145 /* Main.storyboard */,
+				3ABD39741FEAA76F00708145 /* Assets.xcassets */,
+				3ABD39761FEAA76F00708145 /* LaunchScreen.storyboard */,
+				3ABD39791FEAA76F00708145 /* Info.plist */,
+				3ABD397A1FEAA76F00708145 /* main.m */,
+				3AFDC21F1FF130D000FBB85D /* PersonFinancial.pch */,
+			);
+			path = PersonFinancial;
+			sourceTree = "<group>";
+		};
+		3ABD39831FEAA76F00708145 /* PersonFinancialTests */ = {
+			isa = PBXGroup;
+			children = (
+				3ABD39841FEAA76F00708145 /* PersonFinancialTests.m */,
+				3ABD39861FEAA76F00708145 /* Info.plist */,
+			);
+			path = PersonFinancialTests;
+			sourceTree = "<group>";
+		};
+		3ABD398E1FEAA76F00708145 /* PersonFinancialUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3ABD398F1FEAA76F00708145 /* PersonFinancialUITests.m */,
+				3ABD39911FEAA76F00708145 /* Info.plist */,
+			);
+			path = PersonFinancialUITests;
+			sourceTree = "<group>";
+		};
+		3ABD39A11FEAB3C300708145 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3ABD39A51FEAB4A200708145 /* Controller */,
+				3ABD39A91FEAB4A200708145 /* Model */,
+				3ABD39A81FEAB4A200708145 /* View */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		3ABD39A51FEAB4A200708145 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3ABD39A61FEAB4A200708145 /* LoginViewViewController.h */,
+				3ABD39A71FEAB4A200708145 /* LoginViewViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3ABD39A81FEAB4A200708145 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3ABD39AB1FEAB52F00708145 /* PasswordView.h */,
+				3ABD39AC1FEAB52F00708145 /* PasswordView.m */,
+				3ABD39AE1FEAB66200708145 /* RoundView.h */,
+				3ABD39AF1FEAB66200708145 /* RoundView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3ABD39A91FEAB4A200708145 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3AFDC2151FF126B400FBB85D /* FinancialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3AFDC2161FF126B400FBB85D /* Controller */,
+				3AFDC2171FF126B400FBB85D /* Model */,
+				3AFDC2181FF126B400FBB85D /* View */,
+			);
+			path = FinancialViewController;
+			sourceTree = "<group>";
+		};
+		3AFDC2161FF126B400FBB85D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3AFDC2191FF1284800FBB85D /* FinancialViewController.h */,
+				3AFDC21A1FF1284800FBB85D /* FinancialViewController.m */,
+				3A00CB1F1FF3D3700033819C /* FinancialDetailViewController.h */,
+				3A00CB201FF3D3700033819C /* FinancialDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3AFDC2171FF126B400FBB85D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AFDC21C1FF128BF00FBB85D /* FinancialDetail.h */,
+				3AFDC21D1FF128BF00FBB85D /* FinancialDetail.m */,
+				3A00CB221FF3D6230033819C /* DisplayModel.h */,
+				3A00CB231FF3D6230033819C /* DisplayModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3AFDC2181FF126B400FBB85D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3AB8BB9E1FFD1B0500C3E030 /* UITextField+BirthDay.h */,
+				3AB8BB9D1FFD1B0400C3E030 /* UITextField+BirthDay.m */,
+				3A00CB1A1FF3CA0A0033819C /* FinancialTableViewCell.h */,
+				3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */,
+				3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */,
+				3AF9F0531FF5222500427A7C /* FinancialDetailTableViewCell.h */,
+				3AF9F0541FF5222500427A7C /* FinancialDetailTableViewCell.m */,
+				3AF9F0551FF5222500427A7C /* FinancialDetailTableViewCell.xib */,
+				3AF9F0581FF532C600427A7C /* RemaksCell.h */,
+				3AF9F0591FF532C600427A7C /* RemaksCell.m */,
+				3AF9F05A1FF532C600427A7C /* RemaksCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		66BDDDA14CD5910117BCDF75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D669ACD0A79B68B5277437EA /* libPods-PersonFinancial.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F0FFF952C04C5790B3110CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD0D3A0FDB50ED2FD5273A65 /* Pods-PersonFinancial.debug.xcconfig */,
+				49B4413724315FFCE81DD5B9 /* Pods-PersonFinancial.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3ABD39671FEAA76F00708145 /* PersonFinancial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ABD39941FEAA76F00708145 /* Build configuration list for PBXNativeTarget "PersonFinancial" */;
+			buildPhases = (
+				78A2B146632E4823121FD580 /* [CP] Check Pods Manifest.lock */,
+				3ABD39641FEAA76F00708145 /* Sources */,
+				3ABD39651FEAA76F00708145 /* Frameworks */,
+				3ABD39661FEAA76F00708145 /* Resources */,
+				E87A849E24D60CA5A9C17296 /* [CP] Embed Pods Frameworks */,
+				E21E7B2F1C27E01003C844DB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PersonFinancial;
+			productName = PersonFinancial;
+			productReference = 3ABD39681FEAA76F00708145 /* PersonFinancial.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3ABD397F1FEAA76F00708145 /* PersonFinancialTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ABD39971FEAA76F00708145 /* Build configuration list for PBXNativeTarget "PersonFinancialTests" */;
+			buildPhases = (
+				3ABD397C1FEAA76F00708145 /* Sources */,
+				3ABD397D1FEAA76F00708145 /* Frameworks */,
+				3ABD397E1FEAA76F00708145 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ABD39821FEAA76F00708145 /* PBXTargetDependency */,
+			);
+			name = PersonFinancialTests;
+			productName = PersonFinancialTests;
+			productReference = 3ABD39801FEAA76F00708145 /* PersonFinancialTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3ABD398A1FEAA76F00708145 /* PersonFinancialUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ABD399A1FEAA76F00708145 /* Build configuration list for PBXNativeTarget "PersonFinancialUITests" */;
+			buildPhases = (
+				3ABD39871FEAA76F00708145 /* Sources */,
+				3ABD39881FEAA76F00708145 /* Frameworks */,
+				3ABD39891FEAA76F00708145 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ABD398D1FEAA76F00708145 /* PBXTargetDependency */,
+			);
+			name = PersonFinancialUITests;
+			productName = PersonFinancialUITests;
+			productReference = 3ABD398B1FEAA76F00708145 /* PersonFinancialUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3ABD39601FEAA76F00708145 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Chengchang Lu";
+				TargetAttributes = {
+					3ABD39671FEAA76F00708145 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					3ABD397F1FEAA76F00708145 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3ABD39671FEAA76F00708145;
+					};
+					3ABD398A1FEAA76F00708145 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3ABD39671FEAA76F00708145;
+					};
+				};
+			};
+			buildConfigurationList = 3ABD39631FEAA76F00708145 /* Build configuration list for PBXProject "PersonFinancial" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3ABD395F1FEAA76F00708145;
+			productRefGroup = 3ABD39691FEAA76F00708145 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3ABD39671FEAA76F00708145 /* PersonFinancial */,
+				3ABD397F1FEAA76F00708145 /* PersonFinancialTests */,
+				3ABD398A1FEAA76F00708145 /* PersonFinancialUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3ABD39661FEAA76F00708145 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ABD39781FEAA76F00708145 /* LaunchScreen.storyboard in Resources */,
+				3AF9F0571FF5222500427A7C /* FinancialDetailTableViewCell.xib in Resources */,
+				3ABD39751FEAA76F00708145 /* Assets.xcassets in Resources */,
+				3ABD39731FEAA76F00708145 /* Main.storyboard in Resources */,
+				3AF9F05C1FF532C600427A7C /* RemaksCell.xib in Resources */,
+				3A00CB1E1FF3CA0A0033819C /* FinancialTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABD397E1FEAA76F00708145 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABD39891FEAA76F00708145 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78A2B146632E4823121FD580 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PersonFinancial-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E21E7B2F1C27E01003C844DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PersonFinancial/Pods-PersonFinancial-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E87A849E24D60CA5A9C17296 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PersonFinancial/Pods-PersonFinancial-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3ABD39641FEAA76F00708145 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A21655D1FEBF73A005C0276 /* CCShowMessage.m in Sources */,
+				3A00CB241FF3D6230033819C /* DisplayModel.m in Sources */,
+				3ABD39B01FEAB66200708145 /* RoundView.m in Sources */,
+				3ABD39AA1FEAB4A200708145 /* LoginViewViewController.m in Sources */,
+				3A00CB211FF3D3700033819C /* FinancialDetailViewController.m in Sources */,
+				3AFDC21B1FF1284800FBB85D /* FinancialViewController.m in Sources */,
+				3AFDC21E1FF128BF00FBB85D /* FinancialDetail.m in Sources */,
+				3ABD397B1FEAA76F00708145 /* main.m in Sources */,
+				3A6BC4691FFA5FCD00B46957 /* DataBase.m in Sources */,
+				3AF9F0561FF5222500427A7C /* FinancialDetailTableViewCell.m in Sources */,
+				3AB8BB9F1FFD1B0500C3E030 /* UITextField+BirthDay.m in Sources */,
+				3ABD396D1FEAA76F00708145 /* AppDelegate.m in Sources */,
+				3AB8BB9C1FFD080A00C3E030 /* cc_NavigationViewController.m in Sources */,
+				3ABD39AD1FEAB52F00708145 /* PasswordView.m in Sources */,
+				3A00CB1D1FF3CA0A0033819C /* FinancialTableViewCell.m in Sources */,
+				3AF9F05B1FF532C600427A7C /* RemaksCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABD397C1FEAA76F00708145 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ABD39851FEAA76F00708145 /* PersonFinancialTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABD39871FEAA76F00708145 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ABD39901FEAA76F00708145 /* PersonFinancialUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3ABD39821FEAA76F00708145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3ABD39671FEAA76F00708145 /* PersonFinancial */;
+			targetProxy = 3ABD39811FEAA76F00708145 /* PBXContainerItemProxy */;
+		};
+		3ABD398D1FEAA76F00708145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3ABD39671FEAA76F00708145 /* PersonFinancial */;
+			targetProxy = 3ABD398C1FEAA76F00708145 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3ABD39711FEAA76F00708145 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ABD39721FEAA76F00708145 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3ABD39761FEAA76F00708145 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ABD39771FEAA76F00708145 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3ABD39921FEAA76F00708145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3ABD39931FEAA76F00708145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3ABD39951FEAA76F00708145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD0D3A0FDB50ED2FD5273A65 /* Pods-PersonFinancial.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4V4GZTR76;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonFinancial/PersonFinancial.pch";
+				INFOPLIST_FILE = PersonFinancial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Lucyf.PersonFinancial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3ABD39961FEAA76F00708145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49B4413724315FFCE81DD5B9 /* Pods-PersonFinancial.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4V4GZTR76;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonFinancial/PersonFinancial.pch";
+				INFOPLIST_FILE = PersonFinancial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Lucyf.PersonFinancial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3ABD39981FEAA76F00708145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4V4GZTR76;
+				INFOPLIST_FILE = PersonFinancialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Lucyf.PersonFinancialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersonFinancial.app/PersonFinancial";
+			};
+			name = Debug;
+		};
+		3ABD39991FEAA76F00708145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4V4GZTR76;
+				INFOPLIST_FILE = PersonFinancialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Lucyf.PersonFinancialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PersonFinancial.app/PersonFinancial";
+			};
+			name = Release;
+		};
+		3ABD399B1FEAA76F00708145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4V4GZTR76;
+				INFOPLIST_FILE = PersonFinancialUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Lucyf.PersonFinancialUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PersonFinancial;
+			};
+			name = Debug;
+		};
+		3ABD399C1FEAA76F00708145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4V4GZTR76;
+				INFOPLIST_FILE = PersonFinancialUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Lucyf.PersonFinancialUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PersonFinancial;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3ABD39631FEAA76F00708145 /* Build configuration list for PBXProject "PersonFinancial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ABD39921FEAA76F00708145 /* Debug */,
+				3ABD39931FEAA76F00708145 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ABD39941FEAA76F00708145 /* Build configuration list for PBXNativeTarget "PersonFinancial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ABD39951FEAA76F00708145 /* Debug */,
+				3ABD39961FEAA76F00708145 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ABD39971FEAA76F00708145 /* Build configuration list for PBXNativeTarget "PersonFinancialTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ABD39981FEAA76F00708145 /* Debug */,
+				3ABD39991FEAA76F00708145 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ABD399A1FEAA76F00708145 /* Build configuration list for PBXNativeTarget "PersonFinancialUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ABD399B1FEAA76F00708145 /* Debug */,
+				3ABD399C1FEAA76F00708145 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3ABD39601FEAA76F00708145 /* Project object */;
+}
