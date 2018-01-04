@@ -67,8 +67,12 @@ static NSString *RemaksCellID = @"RemaksCellID";
     //添加新记录模式
     if (_mode == ViewControllerModeNew) {
         [[DataBase sharedDataBase] addFinancial:_detailM];
-        [self.navigationController popViewControllerAnimated:YES];
+
+    }else if(_mode == ViewControllerModeEdit){
+        [[DataBase sharedDataBase] updateFinancial:_detailM];
     }
+    [self.delegate financialDidChange];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark --Lazy load

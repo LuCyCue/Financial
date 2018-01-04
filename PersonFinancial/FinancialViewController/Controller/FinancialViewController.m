@@ -12,7 +12,7 @@
 #import "FinancialDetailViewController.h"
 #import "DataBase.h"
 
-@interface FinancialViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface FinancialViewController ()<UITableViewDelegate, UITableViewDataSource,FinancialChangeDelegate>
 
 @property (nonatomic, strong)   UITableView   *tableV;
 
@@ -42,6 +42,7 @@ static NSString *const FinanciallID = @"FinancialID";
 }
 - (void)setupNavBar
 {
+    self.title = @"帐目";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addNewRecord)];
     self.navigationItem.rightBarButtonItem = rightItem;
     
@@ -62,6 +63,7 @@ static NSString *const FinanciallID = @"FinancialID";
 - (void)addNewRecord
 {
     FinancialDetailViewController *detailVC = [[FinancialDetailViewController alloc]initWithDetailM:[FinancialDetail new] Mode:ViewControllerModeNew];
+    detailVC.delegate =self;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 - (void)editRecord
@@ -71,16 +73,9 @@ static NSString *const FinanciallID = @"FinancialID";
 #pragma mark --UITableviewDataSource && Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    NSArray *subData = self.datasource[section];
-//    return subData.count;
     return self.datasource.count;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-   // return self.datasource.count;
-    return 1;
-}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FinancialDetail *financialM = self.datasource[indexPath.row];
@@ -91,6 +86,41 @@ static NSString *const FinanciallID = @"FinancialID";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 70.f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FinancialDetail *financialM = self.datasource[indexPath.row];
+    FinancialDetailViewController *detailVC = [[FinancialDetailViewController alloc]initWithDetailM:financialM Mode:ViewControllerModeEdit];
+    detailVC.delegate = self;
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+}
+//左滑编辑模式
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[DataBase sharedDataBase] deleteFinancial:_datasource[indexPath.row]];
+        [_datasource removeObjectAtIndex:indexPath.row];
+        [_tableV deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }
+}
+
+//设置左滑删除按钮的文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //设置右边按钮的文字
+    return @"删除";
+}
+#pragma mark FinancialChangeDelegate
+- (void)financialDidChange
+{
+    [self reloadTableView];
+}
+- (void)reloadTableView
+{
+    _datasource = [[DataBase sharedDataBase] getAllFinancial];
+    [self.tableV reloadData];
 }
 #pragma mark --MemoryWarning
 - (void)didReceiveMemoryWarning {

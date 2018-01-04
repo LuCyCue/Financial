@@ -40,7 +40,7 @@
         <scene sceneID="RsM-mc-VnU">
             <objects>
                 <navigationController id="c99-qv-KOf" customClass="cc_NavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="IQButtonBarArrowDown.png" id="EXQ-dK-52J"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="EXQ-dK-52J"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0AV-Tg-WnZ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -273,7 +273,7 @@
         <scene sceneID="f3B-WZ-mOv">
             <objects>
                 <navigationController id="Dei-Ik-dO9" customClass="cc_NavigationViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" id="JLc-da-At9"/>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="JLc-da-At9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ht7-oh-IHk">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -319,7 +319,4 @@
             <point key="canvasLocation" x="1146" y="-434"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="IQButtonBarArrowDown.png" width="21" height="12"/>
-    </resources>
 </document>

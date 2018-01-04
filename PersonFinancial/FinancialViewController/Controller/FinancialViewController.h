@@ -10,4 +10,6 @@
 
 @interface FinancialViewController : UIViewController
 
+- (void)reloadTableView;
+
 @end

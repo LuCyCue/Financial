@@ -110,6 +110,16 @@ static DataBase *_DBCtl = nil;
     [_db close];
 }
 
+- (void)deleteFinancial:(FinancialDetail *)financialM
+{
+    [_db open];
+    
+    
+    [_db executeUpdate:@"DELETE FROM t_financial WHERE id = ? ",@(financialM.ID)];
+    
+    
+    [_db close];
+}
 - (void)updateFinancial:(FinancialDetail *)financialM
 {
     [_db open];

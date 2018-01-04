@@ -31,4 +31,5 @@
 - (void)addFinancial:(FinancialDetail *)financialM;
 - (NSMutableArray *)getAllFinancial;
 - (void)updateFinancial:(FinancialDetail *)financialM;
+- (void)deleteFinancial:(FinancialDetail *)financialM;
 @end

@@ -18,7 +18,9 @@
     [super viewDidLoad];
     [self resetNavi];
     self.delegate = self;
-    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor],
+                                               NSFontAttributeName:[UIFont fontWithName:@"CourierNewPS-ItalicMT" size:20]
+                                               };
 }
 /**
  导航栏
