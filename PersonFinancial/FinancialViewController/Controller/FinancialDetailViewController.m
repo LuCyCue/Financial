@@ -38,7 +38,6 @@ static NSString *RemaksCellID = @"RemaksCellID";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupTableview];
-    //[self setupNavBar];
     self.isneedSave = YES;
 }
 -(void)setupTableview
@@ -53,6 +52,7 @@ static NSString *RemaksCellID = @"RemaksCellID";
     [_tableV registerNib:[UINib nibWithNibName:@"FinancialDetailTableViewCell" bundle:nil] forCellReuseIdentifier:FinancailDetailCellID];
     [_tableV registerNib:[UINib nibWithNibName:@"RemaksCell" bundle:nil] forCellReuseIdentifier:RemaksCellID];
     _tableV.estimatedRowHeight = 50.f;
+    _tableV.rowHeight = UITableViewAutomaticDimension;
     
     
 }
@@ -125,6 +125,9 @@ static NSString *RemaksCellID = @"RemaksCellID";
         self.isneedSave = NO;
         [self setupNavBar];
     }
+    //刷新显示数据
+    NSArray *array = [_detailM transform2DisplayArray];
+    _datasource = [NSMutableArray arrayWithArray:array];
 }
 #pragma mark --MemoryWarning
 - (void)didReceiveMemoryWarning {
