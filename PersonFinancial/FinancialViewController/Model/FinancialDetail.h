@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DisplayModel.h"
 @class UIImage;
-@interface FinancialDetail : NSObject
+@interface FinancialDetail : NSObject<NSCopying>
 
 /**
  数据库中的id

@@ -15,12 +15,12 @@ typedef enum {
     ViewControllerModeLookUp,   //查看模式
 }ViewControllerMode;
 
-@protocol FinancialChangeDelegate
+@protocol FinancialChangeDelegate <NSObject>
 - (void)financialDidChange;
 @end
 @interface FinancialDetailViewController : UIViewController
 
-@property (nonatomic, strong)  FinancialDetail  *detailM;
+@property (nonatomic, copy)  FinancialDetail  *detailM;
 
 @property (nonatomic, assign)   ViewControllerMode  mode;
 

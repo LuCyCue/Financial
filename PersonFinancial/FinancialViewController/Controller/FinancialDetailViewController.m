@@ -28,7 +28,7 @@ static NSString *RemaksCellID = @"RemaksCellID";
 {
     self = [super init];
     if (self) {
-        _detailM = detail;
+        _detailM = [detail copy];
         _mode = mode;
     }
     return self;
@@ -48,6 +48,7 @@ static NSString *RemaksCellID = @"RemaksCellID";
     _tableV.dataSource = self;
     _tableV.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     _tableV.allowsSelection = NO;
+    _tableV.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableV];
     [_tableV registerNib:[UINib nibWithNibName:@"FinancialDetailTableViewCell" bundle:nil] forCellReuseIdentifier:FinancailDetailCellID];
     [_tableV registerNib:[UINib nibWithNibName:@"RemaksCell" bundle:nil] forCellReuseIdentifier:RemaksCellID];
@@ -59,19 +60,25 @@ static NSString *RemaksCellID = @"RemaksCellID";
 - (void)setupNavBar
 {
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveEdit)];
+    rightItem.tintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem = rightItem;
     
 }
 - (void)saveEdit
 {
-    //添加新记录模式
-    if (_mode == ViewControllerModeNew) {
+    //键盘注销第一响应者
+    if ([IQKeyboardManager sharedManager].isKeyboardShowing) {
+        [[IQKeyboardManager sharedManager]resignFirstResponder];
+    }
+    if (_mode == ViewControllerModeNew) {//添加新记录模式
         [[DataBase sharedDataBase] addFinancial:_detailM];
 
-    }else if(_mode == ViewControllerModeEdit){
+    }else if(_mode == ViewControllerModeEdit){//编辑模式
         [[DataBase sharedDataBase] updateFinancial:_detailM];
     }
-    [self.delegate financialDidChange];
+    if([self.delegate respondsToSelector:@selector(financialDidChange)]){
+        [self.delegate financialDidChange];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -132,7 +139,9 @@ static NSString *RemaksCellID = @"RemaksCellID";
     //刷新显示数据
     NSArray *array = [_detailM transform2DisplayArray];
     _datasource = [NSMutableArray arrayWithArray:array];
+    [_tableV reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:6 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
 #pragma mark --MemoryWarning
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -43,11 +43,19 @@ static NSString *const FinanciallID = @"FinancialID";
 - (void)setupNavBar
 {
     self.title = @"帐目";
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addNewRecord)];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+    [btn addTarget:self action:@selector(addNewRecord) forControlEvents:UIControlEventTouchUpInside];
+    btn.frame = CGRectMake(0, 0, 30, 30);
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = rightItem;
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editRecord)];
-    self.navigationItem.leftBarButtonItem = leftItem;
+  
+  
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editRecord)];
+//    self.navigationItem.leftBarButtonItem = leftItem;
 }
 #pragma mark --lazy load
 - (NSMutableArray *)datasource
@@ -94,6 +102,7 @@ static NSString *const FinanciallID = @"FinancialID";
     FinancialDetailViewController *detailVC = [[FinancialDetailViewController alloc]initWithDetailM:financialM Mode:ViewControllerModeEdit];
     detailVC.delegate = self;
     [self.navigationController pushViewController:detailVC animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 //左滑编辑模式

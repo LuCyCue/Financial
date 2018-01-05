@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *piecise;
 @property (nonatomic, strong)  FinancialDetail  *datasource;
+@property (weak, nonatomic) IBOutlet UILabel *LabProfit;
 
 @end

@@ -49,9 +49,8 @@ static const char *datePickerKey = '\0';
 
 -(void)done{
     
-    [self resignFirstResponder];
-    
     [self dateChanged:self.picker];
+    [self resignFirstResponder];
     
 }
 

@@ -26,8 +26,9 @@
 {
     _datasource = datasource;
     _productName.text = datasource.productName;
-    _piecise.text = [NSString stringWithFormat:@"%2ld 件",datasource.pieces];
+    _piecise.text = [NSString stringWithFormat:@"%2d 件",(int)datasource.pieces];
     _time.text = datasource.time;
     _customerName.text = datasource.customer;
+    _LabProfit.text = [NSString stringWithFormat:@"%d¥",(int)datasource.profit];
 }
 @end

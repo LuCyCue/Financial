@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PersonFinancial/FinancialViewController/View/RemaksCell.m"
-            timestampString = "536730043.998358"
+            filePath = "PersonFinancial/FinancialViewController/Controller/FinancialDetailViewController.m"
+            timestampString = "536839525.659221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "-textViewDidEndEditing:"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-dataSourceChangeWithTitle:Content:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
