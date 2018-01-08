@@ -54,8 +54,7 @@ static NSString *RemaksCellID = @"RemaksCellID";
     [_tableV registerNib:[UINib nibWithNibName:@"RemaksCell" bundle:nil] forCellReuseIdentifier:RemaksCellID];
     _tableV.estimatedRowHeight = 50.f;
     _tableV.rowHeight = UITableViewAutomaticDimension;
-    
-    
+
 }
 - (void)setupNavBar
 {
@@ -106,11 +105,16 @@ static NSString *RemaksCellID = @"RemaksCellID";
         FinancialDetailTableViewCell *cell  = [_tableV dequeueReusableCellWithIdentifier:FinancailDetailCellID];
         cell.LabTitle.text = detail.title;
         cell.TexContent.text = detail.content;
-        if ([detail.title isEqualToString:@"时间:"]) {
-            cell.isNeedInputDate = YES;
-        }else if([detail.title isEqualToString:@"利润:"]){
+        if (WeakSelf.mode == ViewControllerModeLookUp) {
             cell.TexContent.userInteractionEnabled = NO;
+        }else{
+            if ([detail.title isEqualToString:@"时间:"]) {
+                cell.isNeedInputDate = YES;
+            }else if([detail.title isEqualToString:@"利润:"]){
+                cell.TexContent.userInteractionEnabled = NO;
+            }
         }
+       
         cell.contentChange = ^(NSString *title, NSString *content) {
             [WeakSelf dataSourceChangeWithTitle:title Content:content];
         };
@@ -119,6 +123,9 @@ static NSString *RemaksCellID = @"RemaksCellID";
         RemaksCell *cell = [_tableV dequeueReusableCellWithIdentifier:RemaksCellID];
         cell.LabTitle.text = detail.title;
         cell.TexContent.text = detail.content;
+        if (WeakSelf.mode == ViewControllerModeLookUp) {
+            cell.TexContent.userInteractionEnabled = NO;
+        }
         cell.contenDidChange = ^(NSString *title, NSString *content) {
             [WeakSelf dataSourceChangeWithTitle:title Content:content];
         };

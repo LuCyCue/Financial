@@ -16,6 +16,9 @@
 		3A00CB241FF3D6230033819C /* DisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A00CB231FF3D6230033819C /* DisplayModel.m */; };
 		3A21655D1FEBF73A005C0276 /* CCShowMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A21655B1FEBF73A005C0276 /* CCShowMessage.m */; };
 		3A6BC4691FFA5FCD00B46957 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BC4671FFA5FCD00B46957 /* DataBase.m */; };
+		3A8868BE20039F7900FBEEAB /* cc_SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8868BA20039F7800FBEEAB /* cc_SearchView.m */; };
+		3A8868BF20039F7900FBEEAB /* CCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8868BD20039F7900FBEEAB /* CCSearchBar.m */; };
+		3A8868C22003A0A400FBEEAB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8868C12003A0A400FBEEAB /* SearchViewController.m */; };
 		3AB8BB9C1FFD080A00C3E030 /* cc_NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8BB9B1FFD080A00C3E030 /* cc_NavigationViewController.m */; };
 		3AB8BB9F1FFD1B0500C3E030 /* UITextField+BirthDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8BB9D1FFD1B0400C3E030 /* UITextField+BirthDay.m */; };
 		3ABD396D1FEAA76F00708145 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD396C1FEAA76F00708145 /* AppDelegate.m */; };
@@ -69,6 +72,12 @@
 		3A21655C1FEBF73A005C0276 /* CCShowMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCShowMessage.h; sourceTree = "<group>"; };
 		3A6BC4671FFA5FCD00B46957 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
 		3A6BC4681FFA5FCD00B46957 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
+		3A8868BA20039F7800FBEEAB /* cc_SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cc_SearchView.m; sourceTree = "<group>"; };
+		3A8868BB20039F7800FBEEAB /* cc_SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cc_SearchView.h; sourceTree = "<group>"; };
+		3A8868BC20039F7800FBEEAB /* CCSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSearchBar.h; sourceTree = "<group>"; };
+		3A8868BD20039F7900FBEEAB /* CCSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSearchBar.m; sourceTree = "<group>"; };
+		3A8868C02003A0A400FBEEAB /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		3A8868C12003A0A400FBEEAB /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		3AB8BB9A1FFD080A00C3E030 /* cc_NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cc_NavigationViewController.h; sourceTree = "<group>"; };
 		3AB8BB9B1FFD080A00C3E030 /* cc_NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cc_NavigationViewController.m; sourceTree = "<group>"; };
 		3AB8BB9D1FFD1B0400C3E030 /* UITextField+BirthDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BirthDay.m"; sourceTree = "<group>"; };
@@ -197,6 +206,43 @@
 			path = DB;
 			sourceTree = "<group>";
 		};
+		3A8868AF20039F4200FBEEAB /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3A8868B020039F4200FBEEAB /* Controller */,
+				3A8868B120039F4200FBEEAB /* Model */,
+				3A8868B220039F4200FBEEAB /* View */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		3A8868B020039F4200FBEEAB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3A8868C02003A0A400FBEEAB /* SearchViewController.h */,
+				3A8868C12003A0A400FBEEAB /* SearchViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A8868B120039F4200FBEEAB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A8868B220039F4200FBEEAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A8868BB20039F7800FBEEAB /* cc_SearchView.h */,
+				3A8868BA20039F7800FBEEAB /* cc_SearchView.m */,
+				3A8868BC20039F7800FBEEAB /* CCSearchBar.h */,
+				3A8868BD20039F7900FBEEAB /* CCSearchBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3AB8BB991FFD07D600C3E030 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +277,7 @@
 		3ABD396A1FEAA76F00708145 /* PersonFinancial */ = {
 			isa = PBXGroup;
 			children = (
+				3A8868AF20039F4200FBEEAB /* SearchViewController */,
 				043FC88F2003094B00975CDF /* HomeViewcontroller */,
 				3AB8BB991FFD07D600C3E030 /* MainViewController */,
 				3AFDC2151FF126B400FBB85D /* FinancialViewController */,
@@ -561,6 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				043FC89A2003146D00975CDF /* OverViewModel.m in Sources */,
+				3A8868BF20039F7900FBEEAB /* CCSearchBar.m in Sources */,
 				3A21655D1FEBF73A005C0276 /* CCShowMessage.m in Sources */,
 				3A00CB241FF3D6230033819C /* DisplayModel.m in Sources */,
 				3ABD39B01FEAB66200708145 /* RoundView.m in Sources */,
@@ -568,9 +616,11 @@
 				3A00CB211FF3D3700033819C /* FinancialDetailViewController.m in Sources */,
 				3AFDC21B1FF1284800FBB85D /* FinancialViewController.m in Sources */,
 				3AFDC21E1FF128BF00FBB85D /* FinancialDetail.m in Sources */,
+				3A8868BE20039F7900FBEEAB /* cc_SearchView.m in Sources */,
 				3ABD397B1FEAA76F00708145 /* main.m in Sources */,
 				043FC8962003096C00975CDF /* HomeViewController.m in Sources */,
 				3A6BC4691FFA5FCD00B46957 /* DataBase.m in Sources */,
+				3A8868C22003A0A400FBEEAB /* SearchViewController.m in Sources */,
 				3AF9F0561FF5222500427A7C /* FinancialDetailTableViewCell.m in Sources */,
 				3AB8BB9F1FFD1B0500C3E030 /* UITextField+BirthDay.m in Sources */,
 				3ABD396D1FEAA76F00708145 /* AppDelegate.m in Sources */,

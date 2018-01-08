@@ -187,7 +187,42 @@ static DataBase *_DBCtl = nil;
     return overViewM;
 }
 
-
+- (NSMutableArray *)getFinancialWithText:(NSString *)searchText
+{
+    [_db open];
+    
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM t_financial WHERE %@ LIKE '%%%@%%' OR %@ LIKE '%%%@%%' OR %@ LIKE '%%%@%%' OR %@ LIKE '%%%@%%' OR %@ LIKE '%%%@%%' OR %@ LIKE '%%%@%%' ORDER BY time DESC",dbKey_customer, searchText,dbKey_productNum, searchText,dbKey_productName,searchText,dbKey_time,searchText,dbKey_remarks,searchText,dbKey_address,searchText];
+    FMResultSet *res = [_db executeQuery:sql];
+    
+    while ([res next]) {
+        FinancialDetail *financialM = [[FinancialDetail alloc] init];
+        financialM.ID = [res intForColumn:@"id"];
+        financialM.productName = [res stringForColumn:dbKey_productName];
+        financialM.productNum = [res stringForColumn:dbKey_productNum];
+        financialM.color =  [res stringForColumn:dbKey_color];
+        financialM.pieces =  [res intForColumn:dbKey_pieces];
+        financialM.price = [res doubleForColumn:dbKey_price];
+        financialM.purchasePrice = [res doubleForColumn:dbKey_puchasePrice];
+        financialM.originalPrice = [res doubleForColumn:dbKey_originalPrice];
+        financialM.profit = [res doubleForColumn:dbKey_profit];
+        financialM.customer = [res stringForColumn:dbKey_customer];
+        financialM.time = [res stringForColumn:dbKey_time];
+        financialM.telephonNum = [res stringForColumn:dbKey_telePhoneNum];
+        financialM.address = [res stringForColumn:dbKey_address];
+        financialM.remarks = [res stringForColumn:dbKey_remarks];
+        financialM.attachedPhoto = [UIImage imageWithData:[res dataForColumn:dbKey_attachedPicture]];
+        [dataArray addObject:financialM];
+        
+    }
+    
+    [_db close];
+    
+    
+    
+    return dataArray;
+    
+}
 
 
 

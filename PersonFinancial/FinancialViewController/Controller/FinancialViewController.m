@@ -11,6 +11,7 @@
 #import "FinancialTableViewCell.h"
 #import "FinancialDetailViewController.h"
 #import "DataBase.h"
+#import "SearchViewController.h"
 
 @interface FinancialViewController ()<UITableViewDelegate, UITableViewDataSource,FinancialChangeDelegate>
 
@@ -75,6 +76,8 @@ static NSString *const FinanciallID = @"FinancialID";
 }
 - (void)goSearch
 {
+    SearchViewController *searchVC = [[SearchViewController alloc]init];
+    [self.navigationController pushViewController:searchVC animated:YES];
     
 }
 #pragma mark --UITableviewDataSource && Delegate

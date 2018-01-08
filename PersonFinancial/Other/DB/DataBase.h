@@ -35,4 +35,7 @@
 - (void)updateFinancial:(FinancialDetail *)financialM;
 - (void)deleteFinancial:(FinancialDetail *)financialM;
 - (OverViewModel *)getOverViewMessage;
+- (NSMutableArray *)getFinancialWithText:(NSString *)searchText;
+
+
 @end
