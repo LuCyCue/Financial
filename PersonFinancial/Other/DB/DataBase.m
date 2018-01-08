@@ -7,8 +7,9 @@
 //
 
 #import "DataBase.h"
-
 #import <FMDB.h>
+
+
 static DataBase *_DBCtl = nil;
 
 @interface DataBase()<NSCopying,NSMutableCopying>{
@@ -77,7 +78,7 @@ static DataBase *_DBCtl = nil;
 -(void)initDataBase{
     // 获得Documents目录路径
     
-    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *documentsPath = kDocumentPath;
     
     // 文件路径
     
@@ -170,7 +171,21 @@ static DataBase *_DBCtl = nil;
     
 }
 
-
+- (OverViewModel *)getOverViewMessage
+{
+    OverViewModel *overViewM = [OverViewModel new];
+    NSMutableArray *allFinancial = [self getAllFinancial];
+    double expenses = 0,income = 0,profit = 0;
+    for (FinancialDetail *financialM in allFinancial) {
+        expenses += financialM.purchasePrice * financialM.pieces;
+        income += financialM.price * financialM.pieces;
+        profit += financialM.profit;
+    }
+    overViewM.totalExpenses = [NSString stringWithFormat:@"%.1f ￥",expenses];
+    overViewM.totalIncome = [NSString stringWithFormat:@"%.1f ￥",income];
+    overViewM.netProfit = [NSString stringWithFormat:@"%.1f ￥",profit];
+    return overViewM;
+}
 
 
 

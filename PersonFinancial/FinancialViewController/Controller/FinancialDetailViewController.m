@@ -108,6 +108,8 @@ static NSString *RemaksCellID = @"RemaksCellID";
         cell.TexContent.text = detail.content;
         if ([detail.title isEqualToString:@"时间:"]) {
             cell.isNeedInputDate = YES;
+        }else if([detail.title isEqualToString:@"利润:"]){
+            cell.TexContent.userInteractionEnabled = NO;
         }
         cell.contentChange = ^(NSString *title, NSString *content) {
             [WeakSelf dataSourceChangeWithTitle:title Content:content];

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043FC8962003096C00975CDF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC8942003096C00975CDF /* HomeViewController.m */; };
+		043FC89A2003146D00975CDF /* OverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC8992003146D00975CDF /* OverViewModel.m */; };
 		1FED937E6F6F6627D275C1C7 /* libPods-PersonFinancial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D669ACD0A79B68B5277437EA /* libPods-PersonFinancial.a */; };
 		3A00CB1D1FF3CA0A0033819C /* FinancialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */; };
 		3A00CB1E1FF3CA0A0033819C /* FinancialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */; };
@@ -52,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043FC8932003096C00975CDF /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		043FC8942003096C00975CDF /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		043FC8982003146D00975CDF /* OverViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverViewModel.h; sourceTree = "<group>"; };
+		043FC8992003146D00975CDF /* OverViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverViewModel.m; sourceTree = "<group>"; };
 		3A00CB1A1FF3CA0A0033819C /* FinancialTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinancialTableViewCell.h; sourceTree = "<group>"; };
 		3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinancialTableViewCell.m; sourceTree = "<group>"; };
 		3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinancialTableViewCell.xib; sourceTree = "<group>"; };
@@ -129,6 +135,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043FC88F2003094B00975CDF /* HomeViewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				043FC8902003094B00975CDF /* Controller */,
+				043FC8912003094B00975CDF /* Model */,
+				043FC8922003094B00975CDF /* View */,
+			);
+			path = HomeViewcontroller;
+			sourceTree = "<group>";
+		};
+		043FC8902003094B00975CDF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				043FC8932003096C00975CDF /* HomeViewController.h */,
+				043FC8942003096C00975CDF /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		043FC8912003094B00975CDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				043FC8982003146D00975CDF /* OverViewModel.h */,
+				043FC8992003146D00975CDF /* OverViewModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		043FC8922003094B00975CDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3A2165591FEBF73A005C0276 /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +231,7 @@
 		3ABD396A1FEAA76F00708145 /* PersonFinancial */ = {
 			isa = PBXGroup;
 			children = (
+				043FC88F2003094B00975CDF /* HomeViewcontroller */,
 				3AB8BB991FFD07D600C3E030 /* MainViewController */,
 				3AFDC2151FF126B400FBB85D /* FinancialViewController */,
 				3A2165591FEBF73A005C0276 /* Other */,
@@ -518,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043FC89A2003146D00975CDF /* OverViewModel.m in Sources */,
 				3A21655D1FEBF73A005C0276 /* CCShowMessage.m in Sources */,
 				3A00CB241FF3D6230033819C /* DisplayModel.m in Sources */,
 				3ABD39B01FEAB66200708145 /* RoundView.m in Sources */,
@@ -526,6 +569,7 @@
 				3AFDC21B1FF1284800FBB85D /* FinancialViewController.m in Sources */,
 				3AFDC21E1FF128BF00FBB85D /* FinancialDetail.m in Sources */,
 				3ABD397B1FEAA76F00708145 /* main.m in Sources */,
+				043FC8962003096C00975CDF /* HomeViewController.m in Sources */,
 				3A6BC4691FFA5FCD00B46957 /* DataBase.m in Sources */,
 				3AF9F0561FF5222500427A7C /* FinancialDetailTableViewCell.m in Sources */,
 				3AB8BB9F1FFD1B0500C3E030 /* UITextField+BirthDay.m in Sources */,

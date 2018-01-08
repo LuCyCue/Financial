@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "FinancialDetail.h"
+#import "OverViewModel.h"
+
 #define dbKey_productName         @"productName"
 #define dbKey_productNum          @"productNum"
 #define dbKey_color               @"color"
@@ -32,4 +34,5 @@
 - (NSMutableArray *)getAllFinancial;
 - (void)updateFinancial:(FinancialDetail *)financialM;
 - (void)deleteFinancial:(FinancialDetail *)financialM;
+- (OverViewModel *)getOverViewMessage;
 @end

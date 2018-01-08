@@ -62,13 +62,17 @@ static NSString *correctPsw = @"900907";
 - (void)inputPassword:(NSInteger)num
 {
     if (num == 100) {
-        [_passwordStr deleteCharactersInRange:NSMakeRange(_passwordStr.length-1, 1)];
+        if (_passwordStr.length) {
+             [_passwordStr deleteCharactersInRange:NSMakeRange(_passwordStr.length-1, 1)];
+        }
     }else{
         [_passwordStr appendString:[NSString stringWithFormat:@"%ld",num]];
     }
     if (_passwordStr.length == 6) {
         if ([_passwordStr isEqualToString:correctPsw]) {
-            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            AppDelegate *appd = (AppDelegate *)kAppDelegate;
+            appd.isLogined = YES;
         }else{
             [CCShowMessage showMessage:@"密码错误" title:@"提示" actions:@[@"确定"] inViewController:self handler:^(UIAlertAction *action) {
                 [_passwordStr deleteCharactersInRange:NSMakeRange(0, _passwordStr.length)];

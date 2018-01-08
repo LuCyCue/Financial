@@ -42,7 +42,7 @@ static NSString *const FinanciallID = @"FinancialID";
 }
 - (void)setupNavBar
 {
-    self.title = @"帐目";
+    self.title = @"记录";
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
@@ -52,10 +52,9 @@ static NSString *const FinanciallID = @"FinancialID";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.navigationItem.rightBarButtonItem = rightItem;
     
-  
-  
-//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editRecord)];
-//    self.navigationItem.leftBarButtonItem = leftItem;
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"navBar_search"] style:UIBarButtonItemStylePlain target:self action:@selector(goSearch)];
+    leftItem.tintColor = [UIColor blackColor];
+    self.navigationItem.leftBarButtonItem = leftItem;
 }
 #pragma mark --lazy load
 - (NSMutableArray *)datasource
@@ -74,7 +73,7 @@ static NSString *const FinanciallID = @"FinancialID";
     detailVC.delegate =self;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
-- (void)editRecord
+- (void)goSearch
 {
     
 }

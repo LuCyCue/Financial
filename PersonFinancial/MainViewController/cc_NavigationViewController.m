@@ -19,7 +19,7 @@
     [self resetNavi];
     self.delegate = self;
     self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor],
-                                               NSFontAttributeName:[UIFont fontWithName:@"CourierNewPS-ItalicMT" size:20]
+                                               NSFontAttributeName:[UIFont fontWithName:@"CourierNewPS-BoldMT" size:20]
                                                };
 }
 /**

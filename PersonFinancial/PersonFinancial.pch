@@ -16,6 +16,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <IQKeyboardManager.h>
+#import "AppDelegate.h"
 
 #endif
 
