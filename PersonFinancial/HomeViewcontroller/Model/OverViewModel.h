@@ -16,4 +16,10 @@
 
 @property (nonatomic, strong)    NSString   *netProfit;
 
+@property (nonatomic, strong)    NSString   *startTime;
+
+@property (nonatomic, strong)    NSString   *endTime;
+
+@property (nonatomic, strong)    NSString   *customer;
+
 @end

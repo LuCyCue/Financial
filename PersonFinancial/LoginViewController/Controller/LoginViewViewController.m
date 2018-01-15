@@ -79,7 +79,6 @@ static NSString *correctPsw = @"900907";
                 _passwordView.inputCount = 0;
             }];
         }
-        NSLog(@"判断密码正确性");
     }
     _passwordView.inputCount = _passwordStr.length;
     

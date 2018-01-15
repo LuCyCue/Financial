@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		043FC8962003096C00975CDF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC8942003096C00975CDF /* HomeViewController.m */; };
 		043FC89A2003146D00975CDF /* OverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC8992003146D00975CDF /* OverViewModel.m */; };
+		049AC12F200C9FA400013BA3 /* CustomerViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049AC12E200C9FA400013BA3 /* CustomerViewControllerViewController.m */; };
+		049AC133200CA3AB00013BA3 /* CustomerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049AC131200CA3AB00013BA3 /* CustomerCell.m */; };
+		049AC134200CA3AB00013BA3 /* CustomerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049AC132200CA3AB00013BA3 /* CustomerCell.xib */; };
 		1FED937E6F6F6627D275C1C7 /* libPods-PersonFinancial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D669ACD0A79B68B5277437EA /* libPods-PersonFinancial.a */; };
 		3A00CB1D1FF3CA0A0033819C /* FinancialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */; };
 		3A00CB1E1FF3CA0A0033819C /* FinancialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */; };
@@ -61,6 +64,11 @@
 		043FC8942003096C00975CDF /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		043FC8982003146D00975CDF /* OverViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverViewModel.h; sourceTree = "<group>"; };
 		043FC8992003146D00975CDF /* OverViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverViewModel.m; sourceTree = "<group>"; };
+		049AC12D200C9FA400013BA3 /* CustomerViewControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerViewControllerViewController.h; sourceTree = "<group>"; };
+		049AC12E200C9FA400013BA3 /* CustomerViewControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerViewControllerViewController.m; sourceTree = "<group>"; };
+		049AC130200CA3AB00013BA3 /* CustomerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerCell.h; sourceTree = "<group>"; };
+		049AC131200CA3AB00013BA3 /* CustomerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerCell.m; sourceTree = "<group>"; };
+		049AC132200CA3AB00013BA3 /* CustomerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerCell.xib; sourceTree = "<group>"; };
 		3A00CB1A1FF3CA0A0033819C /* FinancialTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinancialTableViewCell.h; sourceTree = "<group>"; };
 		3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinancialTableViewCell.m; sourceTree = "<group>"; };
 		3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinancialTableViewCell.xib; sourceTree = "<group>"; };
@@ -179,6 +187,42 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		049AC129200C9F6500013BA3 /* CustomersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				049AC12A200C9F6500013BA3 /* Controller */,
+				049AC12B200C9F6500013BA3 /* Model */,
+				049AC12C200C9F6500013BA3 /* View */,
+			);
+			path = CustomersViewController;
+			sourceTree = "<group>";
+		};
+		049AC12A200C9F6500013BA3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				049AC12D200C9FA400013BA3 /* CustomerViewControllerViewController.h */,
+				049AC12E200C9FA400013BA3 /* CustomerViewControllerViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		049AC12B200C9F6500013BA3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		049AC12C200C9F6500013BA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				049AC130200CA3AB00013BA3 /* CustomerCell.h */,
+				049AC131200CA3AB00013BA3 /* CustomerCell.m */,
+				049AC132200CA3AB00013BA3 /* CustomerCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3A2165591FEBF73A005C0276 /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +321,7 @@
 		3ABD396A1FEAA76F00708145 /* PersonFinancial */ = {
 			isa = PBXGroup;
 			children = (
+				049AC129200C9F6500013BA3 /* CustomersViewController */,
 				3A8868AF20039F4200FBEEAB /* SearchViewController */,
 				043FC88F2003094B00975CDF /* HomeViewcontroller */,
 				3AB8BB991FFD07D600C3E030 /* MainViewController */,
@@ -527,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ABD39781FEAA76F00708145 /* LaunchScreen.storyboard in Resources */,
+				049AC134200CA3AB00013BA3 /* CustomerCell.xib in Resources */,
 				3AF9F0571FF5222500427A7C /* FinancialDetailTableViewCell.xib in Resources */,
 				3ABD39751FEAA76F00708145 /* Assets.xcassets in Resources */,
 				3ABD39731FEAA76F00708145 /* Main.storyboard in Resources */,
@@ -614,6 +660,8 @@
 				3ABD39B01FEAB66200708145 /* RoundView.m in Sources */,
 				3ABD39AA1FEAB4A200708145 /* LoginViewViewController.m in Sources */,
 				3A00CB211FF3D3700033819C /* FinancialDetailViewController.m in Sources */,
+				049AC133200CA3AB00013BA3 /* CustomerCell.m in Sources */,
+				049AC12F200C9FA400013BA3 /* CustomerViewControllerViewController.m in Sources */,
 				3AFDC21B1FF1284800FBB85D /* FinancialViewController.m in Sources */,
 				3AFDC21E1FF128BF00FBB85D /* FinancialDetail.m in Sources */,
 				3A8868BE20039F7900FBEEAB /* cc_SearchView.m in Sources */,

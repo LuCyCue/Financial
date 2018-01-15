@@ -171,10 +171,10 @@ static DataBase *_DBCtl = nil;
     
 }
 
-- (OverViewModel *)getOverViewMessage
+- (OverViewModel *)getOverViewMessageWithStartTime:(NSString *)startTime EndTime:(NSString *)endTime CutomerName:(NSString *)customer
 {
     OverViewModel *overViewM = [OverViewModel new];
-    NSMutableArray *allFinancial = [self getAllFinancial];
+    NSMutableArray *allFinancial = [self getFinancialWithStartTime:startTime EndTime:endTime CutomerName:customer];
     double expenses = 0,income = 0,profit = 0;
     for (FinancialDetail *financialM in allFinancial) {
         expenses += financialM.purchasePrice * financialM.pieces;
@@ -184,6 +184,9 @@ static DataBase *_DBCtl = nil;
     overViewM.totalExpenses = [NSString stringWithFormat:@"%.1f ￥",expenses];
     overViewM.totalIncome = [NSString stringWithFormat:@"%.1f ￥",income];
     overViewM.netProfit = [NSString stringWithFormat:@"%.1f ￥",profit];
+    overViewM.startTime = startTime;
+    overViewM.endTime = endTime;
+    overViewM.customer = customer;
     return overViewM;
 }
 
@@ -223,7 +226,82 @@ static DataBase *_DBCtl = nil;
     return dataArray;
     
 }
+- (NSMutableArray *)getFinancialWithStartTime:(NSString *)startTime EndTime:(NSString *)endTime CutomerName:(NSString *)customer
+{
+    [_db open];
+    
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    NSString *sql = nil;
+    if ([customer isEqualToString:@"全部"]) {
+        sql = [NSString stringWithFormat:@"SELECT * FROM t_financial WHERE %@ <= '%@' AND %@ >= '%@'",dbKey_time,endTime,dbKey_time,startTime];
+    }else{
+        sql = [NSString stringWithFormat:@"SELECT * FROM t_financial WHERE %@ LIKE '%@' AND %@ <= '%@' AND %@ >= '%@'",dbKey_customer, customer,dbKey_time,endTime,dbKey_time,startTime];
+    }
 
+    FMResultSet *res = [_db executeQuery:sql];
+    
+    while ([res next]) {
+        FinancialDetail *financialM = [[FinancialDetail alloc] init];
+        financialM.ID = [res intForColumn:@"id"];
+        financialM.productName = [res stringForColumn:dbKey_productName];
+        financialM.productNum = [res stringForColumn:dbKey_productNum];
+        financialM.color =  [res stringForColumn:dbKey_color];
+        financialM.pieces =  [res intForColumn:dbKey_pieces];
+        financialM.price = [res doubleForColumn:dbKey_price];
+        financialM.purchasePrice = [res doubleForColumn:dbKey_puchasePrice];
+        financialM.originalPrice = [res doubleForColumn:dbKey_originalPrice];
+        financialM.profit = [res doubleForColumn:dbKey_profit];
+        financialM.customer = [res stringForColumn:dbKey_customer];
+        financialM.time = [res stringForColumn:dbKey_time];
+        financialM.telephonNum = [res stringForColumn:dbKey_telePhoneNum];
+        financialM.address = [res stringForColumn:dbKey_address];
+        financialM.remarks = [res stringForColumn:dbKey_remarks];
+        financialM.attachedPhoto = [UIImage imageWithData:[res dataForColumn:dbKey_attachedPicture]];
+        [dataArray addObject:financialM];
+        
+    }
+    
+    [_db close];
+    return dataArray;
+    
+}
+- (NSMutableArray *)getAllCutomer
+{
+    [_db open];
+    
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    NSString *sql = [NSString stringWithFormat:@"SELECT %@ FROM t_financial",dbKey_customer];;
+  
+    FMResultSet *res = [_db executeQuery:sql];
+    
+    while ([res next]) {
+        NSString *customerName = [res stringForColumn:dbKey_customer];
+        [dataArray addObject:customerName];
+        
+    }
+    [_db close];
+    return dataArray;
+}
+- (NSString *)getMinTime
+{
+    [_db open];
+    NSString *minTime = @"";
+    NSString *sql = [NSString stringWithFormat:@"SELECT MIN(%@) FROM t_financial",dbKey_time];
+    minTime = [_db stringForQuery:sql];
+   
+    [_db close];
+    return minTime;
+}
 
+- (NSString *)getMaxTime
+{
+    [_db open];
+    NSString *maxTime = @"";
+    NSString *sql = [NSString stringWithFormat:@"SELECT MAX(%@) FROM t_financial",dbKey_time];
+    maxTime = [_db stringForQuery:sql];
+    
+    [_db close];
+    return maxTime;
+}
 
 @end

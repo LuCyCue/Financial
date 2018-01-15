@@ -30,12 +30,24 @@
 
 
 + (instancetype)sharedDataBase;
+
+//add
 - (void)addFinancial:(FinancialDetail *)financialM;
-- (NSMutableArray *)getAllFinancial;
+
+//update
 - (void)updateFinancial:(FinancialDetail *)financialM;
+
+//delete
 - (void)deleteFinancial:(FinancialDetail *)financialM;
-- (OverViewModel *)getOverViewMessage;
+
+//select
+- (NSMutableArray *)getAllFinancial;
+- (OverViewModel *)getOverViewMessageWithStartTime:(NSString *)startTime EndTime:(NSString *)endTime CutomerName:(NSString *)cutomer;
 - (NSMutableArray *)getFinancialWithText:(NSString *)searchText;
+- (NSString *)getMinTime;
+- (NSString *)getMaxTime;
+- (NSMutableArray *)getFinancialWithStartTime:(NSString *)startTime EndTime:(NSString *)endTime CutomerName:(NSString *)cutomer;
+- (NSMutableArray *)getAllCutomer;
 
 
 @end
