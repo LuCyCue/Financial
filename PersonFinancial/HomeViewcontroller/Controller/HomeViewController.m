@@ -94,12 +94,12 @@
 }
 - (void)goSettings
 {
-//    [NetWorkApi getAllFinancialFromServer:^(BOOL isSuccess, NSArray *array) {
-//        if (isSuccess) {
-//            [[DataBase sharedDataBase] addFinancialsWithArray:array];
-//        }
-//    }];
-    [[DataBase sharedDataBase] truncateTable];
+    [NetWorkApi getAllFinancialFromServer:^(BOOL isSuccess, NSArray *array) {
+        if (isSuccess) {
+            [[DataBase sharedDataBase] addFinancialsWithArray:array];
+        }
+    }];
+   
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

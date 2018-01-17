@@ -66,7 +66,7 @@ static NSString *const settingCellID1 = @"settingCellID1";
     }else{
         NSDictionary  *dic = array[indexPath.row];
         cell.LabTitle.text = [dic objectForKey:@"title"];
-        cell.SwhOn.state = [((NSNumber*)[dic objectForKey:@"switch"]) boolValue];
+        //cell.SwhOn.state = [((NSNumber*)[dic objectForKey:@"switch"]) boolValue];
     }
     return cell;
 }
