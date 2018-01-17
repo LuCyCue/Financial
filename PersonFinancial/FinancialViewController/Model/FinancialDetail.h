@@ -73,12 +73,16 @@
  */
 @property (nonatomic, strong)    UIImage   *attachedPhoto;
 
+//服务器对应id
+@property (nonatomic, strong)    NSString  *objectId;
+
 
 
 - (NSArray *)transform2DisplayArray;
 
 - (void)changePropertyWithDisplayModel:(DisplayModel *)display;
 
+- (NSDictionary *)transToDict;
 
 
 

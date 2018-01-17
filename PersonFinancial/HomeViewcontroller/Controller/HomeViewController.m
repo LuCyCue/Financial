@@ -11,6 +11,7 @@
 #import "LoginViewViewController.h"
 #import "UITextField+BirthDay.h"
 #import "CustomerViewControllerViewController.h"
+#import "NetWorkApi.h"
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *LabTotalExpenses;
@@ -93,7 +94,12 @@
 }
 - (void)goSettings
 {
-    
+//    [NetWorkApi getAllFinancialFromServer:^(BOOL isSuccess, NSArray *array) {
+//        if (isSuccess) {
+//            [[DataBase sharedDataBase] addFinancialsWithArray:array];
+//        }
+//    }];
+    [[DataBase sharedDataBase] truncateTable];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

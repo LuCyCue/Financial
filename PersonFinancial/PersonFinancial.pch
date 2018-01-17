@@ -17,7 +17,11 @@
 #import <Foundation/Foundation.h>
 #import <IQKeyboardManager.h>
 #import "AppDelegate.h"
+<<<<<<< HEAD
 #import "PersonalSettings.h"
+=======
+#import <SVProgressHUD.h>
+>>>>>>> 88517391d481eb797c7dc09e4d3143f20f4d4271
 
 #endif
 

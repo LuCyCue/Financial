@@ -11,6 +11,8 @@
 #import "RemaksCell.h"
 #import "DataBase.h"
 #import "DisplayModel.h"
+#import "NetWorkApi.h"
+
 
 @interface FinancialDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)   UITableView  *tableV;
@@ -69,16 +71,33 @@ static NSString *RemaksCellID = @"RemaksCellID";
     if ([IQKeyboardManager sharedManager].isKeyboardShowing) {
         [[IQKeyboardManager sharedManager]resignFirstResponder];
     }
+    [SVProgressHUD showWithStatus:@"正在保存"];
+    cc_WeakSelf(self)
     if (_mode == ViewControllerModeNew) {//添加新记录模式
-        [[DataBase sharedDataBase] addFinancial:_detailM];
-
+        _detailM.ID = [[DataBase sharedDataBase]getMaxId] + 1;
+        [NetWorkApi addFinancial:_detailM Result:^(BOOL isSuccess, NSString *objectId, NSError *error) {
+            if (isSuccess) {
+                weakself.detailM.objectId = objectId;
+                [[DataBase sharedDataBase] addFinancial:weakself.detailM];
+                [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+                [weakself saveSuccess];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"保存失败"];
+            }
+        }];
+        
     }else if(_mode == ViewControllerModeEdit){//编辑模式
-        [[DataBase sharedDataBase] updateFinancial:_detailM];
+        [NetWorkApi updateFinancial:_detailM Result:^(BOOL isSuccess, NSError *error) {
+            if (isSuccess) {
+                [[DataBase sharedDataBase] updateFinancial:weakself.detailM];
+                [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+                [weakself saveSuccess];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"保存失败"];
+            }
+        }];
     }
-    if([self.delegate respondsToSelector:@selector(financialDidChange)]){
-        [self.delegate financialDidChange];
-    }
-    [self.navigationController popViewControllerAnimated:YES];
+  
 }
 
 #pragma mark --Lazy load
@@ -151,12 +170,25 @@ static NSString *RemaksCellID = @"RemaksCellID";
     [_tableV reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:6 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+- (void)saveSuccess
+{
+    if([self.delegate respondsToSelector:@selector(financialDidChange)]){
+        [self.delegate financialDidChange];
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController popViewControllerAnimated:YES];
+    });
+   
+}
 #pragma mark --MemoryWarning
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)dealloc
+{
+    cc_Log_Dealloc;
+}
 
 
 
