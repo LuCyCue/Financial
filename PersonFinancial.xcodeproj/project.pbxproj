@@ -22,6 +22,10 @@
 		3A8868BE20039F7900FBEEAB /* cc_SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8868BA20039F7800FBEEAB /* cc_SearchView.m */; };
 		3A8868BF20039F7900FBEEAB /* CCSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8868BD20039F7900FBEEAB /* CCSearchBar.m */; };
 		3A8868C22003A0A400FBEEAB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8868C12003A0A400FBEEAB /* SearchViewController.m */; };
+		3AA1DA2B200CDB5D0067089A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1DA2A200CDB5D0067089A /* SettingViewController.m */; };
+		3AA1DA30200CDBB10067089A /* SettingSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1DA2E200CDBB10067089A /* SettingSwitchCell.m */; };
+		3AA1DA31200CDBB10067089A /* SettingSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA1DA2F200CDBB10067089A /* SettingSwitchCell.xib */; };
+		3AA1DA39200CE3760067089A /* PersonalSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1DA38200CE3760067089A /* PersonalSettings.m */; };
 		3AB8BB9C1FFD080A00C3E030 /* cc_NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8BB9B1FFD080A00C3E030 /* cc_NavigationViewController.m */; };
 		3AB8BB9F1FFD1B0500C3E030 /* UITextField+BirthDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8BB9D1FFD1B0400C3E030 /* UITextField+BirthDay.m */; };
 		3ABD396D1FEAA76F00708145 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD396C1FEAA76F00708145 /* AppDelegate.m */; };
@@ -86,6 +90,13 @@
 		3A8868BD20039F7900FBEEAB /* CCSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSearchBar.m; sourceTree = "<group>"; };
 		3A8868C02003A0A400FBEEAB /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		3A8868C12003A0A400FBEEAB /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		3AA1DA29200CDB5D0067089A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		3AA1DA2A200CDB5D0067089A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		3AA1DA2D200CDBB10067089A /* SettingSwitchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingSwitchCell.h; sourceTree = "<group>"; };
+		3AA1DA2E200CDBB10067089A /* SettingSwitchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingSwitchCell.m; sourceTree = "<group>"; };
+		3AA1DA2F200CDBB10067089A /* SettingSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingSwitchCell.xib; sourceTree = "<group>"; };
+		3AA1DA37200CE3760067089A /* PersonalSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalSettings.h; sourceTree = "<group>"; };
+		3AA1DA38200CE3760067089A /* PersonalSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalSettings.m; sourceTree = "<group>"; };
 		3AB8BB9A1FFD080A00C3E030 /* cc_NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cc_NavigationViewController.h; sourceTree = "<group>"; };
 		3AB8BB9B1FFD080A00C3E030 /* cc_NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cc_NavigationViewController.m; sourceTree = "<group>"; };
 		3AB8BB9D1FFD1B0400C3E030 /* UITextField+BirthDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+BirthDay.m"; sourceTree = "<group>"; };
@@ -287,6 +298,44 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3AA1DA23200CDAC90067089A /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1DA36200CE3440067089A /* Model */,
+				3AA1DA2C200CDB750067089A /* View */,
+				3AA1DA28200CDB5D0067089A /* Controller */,
+			);
+			path = SettingViewController;
+			sourceTree = "<group>";
+		};
+		3AA1DA28200CDB5D0067089A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1DA29200CDB5D0067089A /* SettingViewController.h */,
+				3AA1DA2A200CDB5D0067089A /* SettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3AA1DA2C200CDB750067089A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1DA2D200CDBB10067089A /* SettingSwitchCell.h */,
+				3AA1DA2E200CDBB10067089A /* SettingSwitchCell.m */,
+				3AA1DA2F200CDBB10067089A /* SettingSwitchCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3AA1DA36200CE3440067089A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1DA37200CE3760067089A /* PersonalSettings.h */,
+				3AA1DA38200CE3760067089A /* PersonalSettings.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3AB8BB991FFD07D600C3E030 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +370,7 @@
 		3ABD396A1FEAA76F00708145 /* PersonFinancial */ = {
 			isa = PBXGroup;
 			children = (
+				3AA1DA23200CDAC90067089A /* SettingViewController */,
 				049AC129200C9F6500013BA3 /* CustomersViewController */,
 				3A8868AF20039F4200FBEEAB /* SearchViewController */,
 				043FC88F2003094B00975CDF /* HomeViewcontroller */,
@@ -577,6 +627,7 @@
 				3ABD39751FEAA76F00708145 /* Assets.xcassets in Resources */,
 				3ABD39731FEAA76F00708145 /* Main.storyboard in Resources */,
 				3AF9F05C1FF532C600427A7C /* RemaksCell.xib in Resources */,
+				3AA1DA31200CDBB10067089A /* SettingSwitchCell.xib in Resources */,
 				3A00CB1E1FF3CA0A0033819C /* FinancialTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,10 +716,13 @@
 				3AFDC21B1FF1284800FBB85D /* FinancialViewController.m in Sources */,
 				3AFDC21E1FF128BF00FBB85D /* FinancialDetail.m in Sources */,
 				3A8868BE20039F7900FBEEAB /* cc_SearchView.m in Sources */,
+				3AA1DA30200CDBB10067089A /* SettingSwitchCell.m in Sources */,
 				3ABD397B1FEAA76F00708145 /* main.m in Sources */,
 				043FC8962003096C00975CDF /* HomeViewController.m in Sources */,
+				3AA1DA2B200CDB5D0067089A /* SettingViewController.m in Sources */,
 				3A6BC4691FFA5FCD00B46957 /* DataBase.m in Sources */,
 				3A8868C22003A0A400FBEEAB /* SearchViewController.m in Sources */,
+				3AA1DA39200CE3760067089A /* PersonalSettings.m in Sources */,
 				3AF9F0561FF5222500427A7C /* FinancialDetailTableViewCell.m in Sources */,
 				3AB8BB9F1FFD1B0500C3E030 /* UITextField+BirthDay.m in Sources */,
 				3ABD396D1FEAA76F00708145 /* AppDelegate.m in Sources */,

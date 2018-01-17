@@ -17,6 +17,7 @@
 #import <Foundation/Foundation.h>
 #import <IQKeyboardManager.h>
 #import "AppDelegate.h"
+#import "PersonalSettings.h"
 
 #endif
 
@@ -117,9 +118,7 @@
 
 #pragma mark - GCD 单例声明与实现
 
-#define kGCD_SHAREINSTANCE_HEADER(classname) \
-\
-+ (instancetype)shared##classname;
+#define kGCD_SHAREINSTANCE_HEADER(classname)   + (instancetype)shared##classname;
 
 #define kGCD_SHAREINSTANCE_CLASS(classname) \
 \

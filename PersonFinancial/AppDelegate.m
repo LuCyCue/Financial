@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initIQKeyBoardManager];
+    [PersonalSettings sharedPersonalSettings];
     return YES;
 }
 
@@ -72,4 +73,5 @@
     keyboardManager.keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
     
 }
+
 @end

@@ -29,6 +29,7 @@ static NSString *const customerCellID = @"customerCellID";
 - (void)setUpSubViews
 {
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"客户选择";
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerNib:[UINib nibWithNibName:@"CustomerCell" bundle:nil] forCellReuseIdentifier:customerCellID];
 }
