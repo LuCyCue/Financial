@@ -92,7 +92,7 @@ static DataBase *_DBCtl = nil;
     
     // 初始化数据表
     
-    NSString *FinancialSql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS 't_financial' ('id' INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL ,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' INTEGER,'%@' REAL,'%@' REAL,'%@' REAL,'%@' REAL,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' BLOB )",dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
+    NSString *FinancialSql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS 't_financial' ('id' INTEGER PRIMARY KEY   NOT NULL ,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' INTEGER,'%@' REAL,'%@' REAL,'%@' REAL,'%@' REAL,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' BLOB )",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
     [_db executeUpdate:FinancialSql];
     
     
@@ -105,29 +105,44 @@ static DataBase *_DBCtl = nil;
     [_db open];
     
     NSData *imageData = UIImagePNGRepresentation(financialM.attachedPhoto);
-    NSString *sqlStr = [NSString stringWithFormat:@"INSERT INTO t_financial (%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
-    [_db executeUpdate:sqlStr,financialM.productName,financialM.productNum,financialM.color,@(financialM.pieces),@(financialM.price),@(financialM.purchasePrice),@(financialM.originalPrice),@(financialM.profit),financialM.customer,financialM.time,financialM.telephonNum,financialM.address,financialM.remarks,imageData];
+    NSString *sqlStr = [NSString stringWithFormat:@"INSERT INTO t_financial (%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",@"id",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
+    [_db executeUpdate:sqlStr,@(financialM.ID),financialM.objectId,financialM.productName,financialM.productNum,financialM.color,@(financialM.pieces),@(financialM.price),@(financialM.purchasePrice),@(financialM.originalPrice),@(financialM.profit),financialM.customer,financialM.time,financialM.telephonNum,financialM.address,financialM.remarks,imageData];
     
     [_db close];
+}
+- (void)addFinancialsWithArray:(NSArray *)array
+{
+    for (FinancialDetail *financialM in array) {
+        [self addFinancial:financialM];
+    }
 }
 
 - (void)deleteFinancial:(FinancialDetail *)financialM
 {
     [_db open];
-    
-    
     [_db executeUpdate:@"DELETE FROM t_financial WHERE id = ? ",@(financialM.ID)];
-    
-    
     [_db close];
 }
+
+/**
+ 清空表
+ */
+- (void)truncateTable
+{
+    [_db open];
+    [_db executeUpdate:@"DELETE FROM t_financial"];
+    [_db close];
+}
+
+
+
 - (void)updateFinancial:(FinancialDetail *)financialM
 {
     [_db open];
     
     NSData *imageData = UIImagePNGRepresentation(financialM.attachedPhoto);
-    NSString *sqlStr = [NSString stringWithFormat:@"UPDATE t_financial SET %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=? WHERE id=?",dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
-    [_db executeUpdate:sqlStr,financialM.productName,financialM.productNum,financialM.color,@(financialM.pieces),@(financialM.price),@(financialM.purchasePrice),@(financialM.originalPrice),@(financialM.profit),financialM.customer,financialM.time,financialM.telephonNum,financialM.address,financialM.remarks,imageData,@(financialM.ID)];
+    NSString *sqlStr = [NSString stringWithFormat:@"UPDATE t_financial SET %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=? WHERE id=?",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
+    [_db executeUpdate:sqlStr,financialM.objectId,financialM.productName,financialM.productNum,financialM.color,@(financialM.pieces),@(financialM.price),@(financialM.purchasePrice),@(financialM.originalPrice),@(financialM.profit),financialM.customer,financialM.time,financialM.telephonNum,financialM.address,financialM.remarks,imageData,@(financialM.ID)];
     
     [_db close];
     
@@ -144,6 +159,7 @@ static DataBase *_DBCtl = nil;
     while ([res next]) {
         FinancialDetail *financialM = [[FinancialDetail alloc] init];
         financialM.ID = [res intForColumn:@"id"];
+        financialM.objectId = [res stringForColumn:dbKey_objectId];
         financialM.productName = [res stringForColumn:dbKey_productName];
         financialM.productNum = [res stringForColumn:dbKey_productNum];
         financialM.color =  [res stringForColumn:dbKey_color];
@@ -243,6 +259,7 @@ static DataBase *_DBCtl = nil;
     while ([res next]) {
         FinancialDetail *financialM = [[FinancialDetail alloc] init];
         financialM.ID = [res intForColumn:@"id"];
+        financialM.objectId = [res stringForColumn:dbKey_objectId];
         financialM.productName = [res stringForColumn:dbKey_productName];
         financialM.productNum = [res stringForColumn:dbKey_productNum];
         financialM.color =  [res stringForColumn:dbKey_color];
@@ -288,6 +305,9 @@ static DataBase *_DBCtl = nil;
     NSString *minTime = @"";
     NSString *sql = [NSString stringWithFormat:@"SELECT MIN(%@) FROM t_financial",dbKey_time];
     minTime = [_db stringForQuery:sql];
+    if(kStringIsEmpty(minTime)){
+        minTime = @"2018-01-01";
+    }
    
     [_db close];
     return minTime;
@@ -299,9 +319,20 @@ static DataBase *_DBCtl = nil;
     NSString *maxTime = @"";
     NSString *sql = [NSString stringWithFormat:@"SELECT MAX(%@) FROM t_financial",dbKey_time];
     maxTime = [_db stringForQuery:sql];
+    if(kStringIsEmpty(maxTime)){
+        maxTime = @"2018-01-01";
+    }
     
     [_db close];
     return maxTime;
 }
-
+- (NSInteger)getMaxId
+{
+    [_db open];
+    NSInteger max = 0;
+    NSString *sql = [NSString stringWithFormat:@"SELECT MAX(id) FROM t_financial"];
+    max = [_db intForQuery:sql];
+    [_db close];
+    return max;
+}
 @end

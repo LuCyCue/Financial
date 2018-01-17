@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <IQKeyboardManager.h>
 #import "LoginViewViewController.h"
+#import "NetWorkApi.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initIQKeyBoardManager];
+    [NetWorkApi ApiRegister];
+    
+    [SVProgressHUD setMinimumDismissTimeInterval:1.0];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     return YES;
 }
 

@@ -12,6 +12,7 @@
 		049AC12F200C9FA400013BA3 /* CustomerViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049AC12E200C9FA400013BA3 /* CustomerViewControllerViewController.m */; };
 		049AC133200CA3AB00013BA3 /* CustomerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049AC131200CA3AB00013BA3 /* CustomerCell.m */; };
 		049AC134200CA3AB00013BA3 /* CustomerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049AC132200CA3AB00013BA3 /* CustomerCell.xib */; };
+		04F96256200EF2E000FFD26A /* NetWorkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F96255200EF2E000FFD26A /* NetWorkApi.m */; };
 		1FED937E6F6F6627D275C1C7 /* libPods-PersonFinancial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D669ACD0A79B68B5277437EA /* libPods-PersonFinancial.a */; };
 		3A00CB1D1FF3CA0A0033819C /* FinancialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */; };
 		3A00CB1E1FF3CA0A0033819C /* FinancialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */; };
@@ -69,6 +70,8 @@
 		049AC130200CA3AB00013BA3 /* CustomerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerCell.h; sourceTree = "<group>"; };
 		049AC131200CA3AB00013BA3 /* CustomerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerCell.m; sourceTree = "<group>"; };
 		049AC132200CA3AB00013BA3 /* CustomerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerCell.xib; sourceTree = "<group>"; };
+		04F96254200EF2E000FFD26A /* NetWorkApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkApi.h; sourceTree = "<group>"; };
+		04F96255200EF2E000FFD26A /* NetWorkApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkApi.m; sourceTree = "<group>"; };
 		3A00CB1A1FF3CA0A0033819C /* FinancialTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FinancialTableViewCell.h; sourceTree = "<group>"; };
 		3A00CB1B1FF3CA0A0033819C /* FinancialTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinancialTableViewCell.m; sourceTree = "<group>"; };
 		3A00CB1C1FF3CA0A0033819C /* FinancialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinancialTableViewCell.xib; sourceTree = "<group>"; };
@@ -223,9 +226,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		04F96253200EF21000FFD26A /* NetApi */ = {
+			isa = PBXGroup;
+			children = (
+				04F96254200EF2E000FFD26A /* NetWorkApi.h */,
+				04F96255200EF2E000FFD26A /* NetWorkApi.m */,
+			);
+			path = NetApi;
+			sourceTree = "<group>";
+		};
 		3A2165591FEBF73A005C0276 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				04F96253200EF21000FFD26A /* NetApi */,
 				3A6BC4661FFA5FCD00B46957 /* DB */,
 				3A21655A1FEBF73A005C0276 /* Tools */,
 			);
@@ -672,6 +685,7 @@
 				3AF9F0561FF5222500427A7C /* FinancialDetailTableViewCell.m in Sources */,
 				3AB8BB9F1FFD1B0500C3E030 /* UITextField+BirthDay.m in Sources */,
 				3ABD396D1FEAA76F00708145 /* AppDelegate.m in Sources */,
+				04F96256200EF2E000FFD26A /* NetWorkApi.m in Sources */,
 				3AB8BB9C1FFD080A00C3E030 /* cc_NavigationViewController.m in Sources */,
 				3ABD39AD1FEAB52F00708145 /* PasswordView.m in Sources */,
 				3A00CB1D1FF3CA0A0033819C /* FinancialTableViewCell.m in Sources */,

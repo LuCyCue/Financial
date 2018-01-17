@@ -12,6 +12,7 @@
 #import "FinancialDetailViewController.h"
 #import "DataBase.h"
 #import "SearchViewController.h"
+#import "NetWorkApi.h"
 
 @interface FinancialViewController ()<UITableViewDelegate, UITableViewDataSource,FinancialChangeDelegate>
 
@@ -111,9 +112,22 @@ static NSString *const FinanciallID = @"FinancialID";
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[DataBase sharedDataBase] deleteFinancial:_datasource[indexPath.row]];
-        [_datasource removeObjectAtIndex:indexPath.row];
-        [_tableV deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        __block FinancialDetail *financialM = _datasource[indexPath.row];
+        cc_WeakSelf(self)
+        [SVProgressHUD showWithStatus:@"正在删除"];
+        [NetWorkApi deleteFinancial:financialM Result:^(BOOL isSuccess, NSError *error) {
+            cc_StrongSelf(self)
+            if (isSuccess) {
+                [[DataBase sharedDataBase] deleteFinancial:financialM];
+                [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+                [weakself.datasource removeObjectAtIndex:indexPath.row];
+                [weakself.tableV deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"删除失败"];
+            }
+        }];
+       
+       
     }
 }
 

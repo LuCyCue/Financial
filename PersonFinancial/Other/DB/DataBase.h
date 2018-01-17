@@ -24,6 +24,7 @@
 #define dbKey_remarks             @"remarks"
 #define dbKey_address             @"address"
 #define dbKey_attachedPicture     @"attachedPicture"
+#define dbKey_objectId            @"objectId"
 
 @interface DataBase : NSObject
 
@@ -33,12 +34,13 @@
 
 //add
 - (void)addFinancial:(FinancialDetail *)financialM;
-
+- (void)addFinancialsWithArray:(NSArray *)array;
 //update
 - (void)updateFinancial:(FinancialDetail *)financialM;
 
 //delete
 - (void)deleteFinancial:(FinancialDetail *)financialM;
+- (void)truncateTable;
 
 //select
 - (NSMutableArray *)getAllFinancial;
@@ -48,6 +50,6 @@
 - (NSString *)getMaxTime;
 - (NSMutableArray *)getFinancialWithStartTime:(NSString *)startTime EndTime:(NSString *)endTime CutomerName:(NSString *)cutomer;
 - (NSMutableArray *)getAllCutomer;
-
+- (NSInteger)getMaxId;
 
 @end

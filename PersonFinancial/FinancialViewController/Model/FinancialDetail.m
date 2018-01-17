@@ -7,6 +7,7 @@
 //
 
 #import "FinancialDetail.h"
+#import <MJExtension/MJExtension.h>
 
 @implementation FinancialDetail
 
@@ -28,6 +29,7 @@
     detailM.address = self.address;
     detailM.remarks = self.remarks;
     detailM.attachedPhoto = self.attachedPhoto;
+    detailM.objectId = self.objectId;
     return detailM;
     
 }
@@ -87,7 +89,10 @@
     }
 }
 
-
+- (NSDictionary *)transToDict
+{
+    return self.mj_keyValues;
+}
 
 
 
