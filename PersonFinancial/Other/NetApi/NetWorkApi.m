@@ -11,7 +11,7 @@
 #import "FinancialDetail.h"
 #import "DataBase.h"
 
-#define NetTableName   @"t_NetFinancial"
+#define NetTableName   @"t_XMZ_NetFinancial"
 @implementation NetWorkApi
 
 kGCD_SHAREINSTANCE_CLASS(NetWorkApi)
@@ -111,6 +111,15 @@ kGCD_SHAREINSTANCE_CLASS(NetWorkApi)
     }];
 }
 
++ (void)registerUser:(NSString *)userName  Password:(NSString *)psw  Result:(NetBoolResultBlock)callBack
+{
+    BmobUser *bUser = [[BmobUser alloc] init];
+    [bUser setUsername:userName];
+    [bUser setPassword:psw];
+    [bUser signUpInBackgroundWithBlock:^ (BOOL isSuccessful, NSError *error){
+        callBack(isSuccessful,error);
+    }];
+}
 
 @end
 

@@ -29,6 +29,7 @@ static NSString *const FinanciallID = @"FinancialID";
     [super viewDidLoad];
     [self setupNavBar];
     [self setupTableview];
+    [kNotificationCenter addObserver:self selector:@selector(reloadTableView) name:@"downloadDataFromServerSucess" object:nil];
     
 }
 -(void)setupTableview
@@ -47,8 +48,7 @@ static NSString *const FinanciallID = @"FinancialID";
     self.title = @"记录";
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+    [btn setImage:[UIImage imageNamed:@"navbar_add"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(addNewRecord) forControlEvents:UIControlEventTouchUpInside];
     btn.frame = CGRectMake(0, 0, 30, 30);
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
@@ -113,21 +113,25 @@ static NSString *const FinanciallID = @"FinancialID";
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         __block FinancialDetail *financialM = _datasource[indexPath.row];
-        cc_WeakSelf(self)
-        [SVProgressHUD showWithStatus:@"正在删除"];
-        [NetWorkApi deleteFinancial:financialM Result:^(BOOL isSuccess, NSError *error) {
-            cc_StrongSelf(self)
-            if (isSuccess) {
-                [[DataBase sharedDataBase] deleteFinancial:financialM];
-                [SVProgressHUD showSuccessWithStatus:@"删除成功"];
-                [weakself.datasource removeObjectAtIndex:indexPath.row];
-                [weakself.tableV deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-            }else{
-                [SVProgressHUD showErrorWithStatus:@"删除失败"];
-            }
-        }];
-       
-       
+        if ([PersonalSettings sharedPersonalSettings].isNeedSaveToServer) {
+            cc_WeakSelf(self)
+            [SVProgressHUD showWithStatus:@"正在删除"];
+            [NetWorkApi deleteFinancial:financialM Result:^(BOOL isSuccess, NSError *error) {
+                if (isSuccess) {
+                    [[DataBase sharedDataBase] deleteFinancial:financialM];
+                    [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+                    [weakself.datasource removeObjectAtIndex:indexPath.row];
+                    [weakself.tableV deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:@"删除失败"];
+                }
+            }];
+        }else{
+            [[DataBase sharedDataBase] deleteFinancial:financialM];
+            [self.datasource removeObjectAtIndex:indexPath.row];
+            [self.tableV deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        }
+   
     }
 }
 
@@ -142,6 +146,7 @@ static NSString *const FinanciallID = @"FinancialID";
 {
     [self reloadTableView];
 }
+#pragma mark --custom Methods
 - (void)reloadTableView
 {
     _datasource = [[DataBase sharedDataBase] getAllFinancial];
@@ -152,8 +157,10 @@ static NSString *const FinanciallID = @"FinancialID";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
+- (void)dealloc
+{
+    [kNotificationCenter removeObserver:self];
+}
 
 
 

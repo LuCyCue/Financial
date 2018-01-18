@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		043FC8962003096C00975CDF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC8942003096C00975CDF /* HomeViewController.m */; };
 		043FC89A2003146D00975CDF /* OverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FC8992003146D00975CDF /* OverViewModel.m */; };
+		047F827520103D0200802BF6 /* SettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 047F827420103D0200802BF6 /* SettingModel.m */; };
 		049AC12F200C9FA400013BA3 /* CustomerViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049AC12E200C9FA400013BA3 /* CustomerViewControllerViewController.m */; };
 		049AC133200CA3AB00013BA3 /* CustomerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 049AC131200CA3AB00013BA3 /* CustomerCell.m */; };
 		049AC134200CA3AB00013BA3 /* CustomerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049AC132200CA3AB00013BA3 /* CustomerCell.xib */; };
@@ -69,6 +70,8 @@
 		043FC8942003096C00975CDF /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		043FC8982003146D00975CDF /* OverViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverViewModel.h; sourceTree = "<group>"; };
 		043FC8992003146D00975CDF /* OverViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OverViewModel.m; sourceTree = "<group>"; };
+		047F827320103D0200802BF6 /* SettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingModel.h; sourceTree = "<group>"; };
+		047F827420103D0200802BF6 /* SettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingModel.m; sourceTree = "<group>"; };
 		049AC12D200C9FA400013BA3 /* CustomerViewControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerViewControllerViewController.h; sourceTree = "<group>"; };
 		049AC12E200C9FA400013BA3 /* CustomerViewControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerViewControllerViewController.m; sourceTree = "<group>"; };
 		049AC130200CA3AB00013BA3 /* CustomerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerCell.h; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 			children = (
 				3AA1DA37200CE3760067089A /* PersonalSettings.h */,
 				3AA1DA38200CE3760067089A /* PersonalSettings.m */,
+				047F827320103D0200802BF6 /* SettingModel.h */,
+				047F827420103D0200802BF6 /* SettingModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -717,6 +722,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047F827520103D0200802BF6 /* SettingModel.m in Sources */,
 				043FC89A2003146D00975CDF /* OverViewModel.m in Sources */,
 				3A8868BF20039F7900FBEEAB /* CCSearchBar.m in Sources */,
 				3A21655D1FEBF73A005C0276 /* CCShowMessage.m in Sources */,

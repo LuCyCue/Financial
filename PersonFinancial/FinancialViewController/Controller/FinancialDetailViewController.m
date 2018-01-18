@@ -71,31 +71,44 @@ static NSString *RemaksCellID = @"RemaksCellID";
     if ([IQKeyboardManager sharedManager].isKeyboardShowing) {
         [[IQKeyboardManager sharedManager]resignFirstResponder];
     }
-    [SVProgressHUD showWithStatus:@"正在保存"];
     cc_WeakSelf(self)
     if (_mode == ViewControllerModeNew) {//添加新记录模式
         _detailM.ID = [[DataBase sharedDataBase]getMaxId] + 1;
-        [NetWorkApi addFinancial:_detailM Result:^(BOOL isSuccess, NSString *objectId, NSError *error) {
-            if (isSuccess) {
-                weakself.detailM.objectId = objectId;
-                [[DataBase sharedDataBase] addFinancial:weakself.detailM];
-                [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-                [weakself saveSuccess];
-            }else{
-                [SVProgressHUD showErrorWithStatus:@"保存失败"];
-            }
-        }];
+        if ([PersonalSettings sharedPersonalSettings].isNeedSaveToServer) {
+            [SVProgressHUD showWithStatus:@"正在保存"];
+            [NetWorkApi addFinancial:_detailM Result:^(BOOL isSuccess, NSString *objectId, NSError *error) {
+                if (isSuccess) {
+                    weakself.detailM.objectId = objectId;
+                    [[DataBase sharedDataBase] addFinancial:weakself.detailM];
+                    [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+                    [weakself saveSuccess];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:@"保存失败"];
+                }
+            }];
+        }else{
+            [[DataBase sharedDataBase] addFinancial:_detailM];
+            [self saveSuccess];
+        }
+      
         
     }else if(_mode == ViewControllerModeEdit){//编辑模式
-        [NetWorkApi updateFinancial:_detailM Result:^(BOOL isSuccess, NSError *error) {
-            if (isSuccess) {
-                [[DataBase sharedDataBase] updateFinancial:weakself.detailM];
-                [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-                [weakself saveSuccess];
-            }else{
-                [SVProgressHUD showErrorWithStatus:@"保存失败"];
-            }
-        }];
+        if ([PersonalSettings sharedPersonalSettings].isNeedSaveToServer){
+            [SVProgressHUD showWithStatus:@"正在保存"];
+            [NetWorkApi updateFinancial:_detailM Result:^(BOOL isSuccess, NSError *error) {
+                if (isSuccess) {
+                    [[DataBase sharedDataBase] updateFinancial:weakself.detailM];
+                    [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+                    [weakself saveSuccess];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:@"保存失败"];
+                }
+            }];
+        }else{
+            [[DataBase sharedDataBase] updateFinancial:_detailM];
+            [self saveSuccess];
+        }
+       
     }
   
 }

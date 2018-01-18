@@ -20,5 +20,18 @@
 
     // Configure the view for the selected state
 }
-
+- (IBAction)SwitchChange:(id)sender {
+    UISwitch *swit = (UISwitch *)sender;
+    if (_settingM.isHaveSwitch && self.switchChange) {
+        self.switchChange(swit.on, _settingM.title);
+    }
+    
+}
+- (void)setSettingM:(SettingModel *)settingM
+{
+    _settingM = settingM;
+    _LabTitle.text = settingM.title;
+    _SwhOn.hidden = settingM.isHaveSwitch ? NO:YES;
+    _SwhOn.on = settingM.isOn;
+}
 @end

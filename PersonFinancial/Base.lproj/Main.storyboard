@@ -276,6 +276,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="LabTitle" destination="McM-O7-1Aq" id="Eau-nB-Hi2"/>
                         <outlet property="passwordView" destination="si2-pW-o20" id="uo2-0m-SFn"/>
                     </connections>
                 </viewController>

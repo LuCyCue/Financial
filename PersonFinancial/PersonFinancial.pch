@@ -19,6 +19,7 @@
 #import "AppDelegate.h"
 #import "PersonalSettings.h"
 #import <SVProgressHUD.h>
+#import "CCShowMessage.h"
 
 #endif
 

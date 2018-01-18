@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum  {
+    PasswordTypeLogin,  //登录
+    PasswordTypeSet,    //设置密码
+    PasswordTypeReset,  //修改密码
+}PasswordType;
+
 @interface LoginViewViewController : UIViewController
+
+@property (nonatomic, assign)    PasswordType   type;
 
 @end

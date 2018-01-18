@@ -17,6 +17,7 @@
 
 @property (nonatomic, assign)     BOOL   isNeedSaveToServer;
 
+
 - (void)getSettings;
 
 + (instancetype)sharedPersonalSettings;

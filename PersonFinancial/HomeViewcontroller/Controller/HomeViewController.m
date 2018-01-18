@@ -12,6 +12,7 @@
 #import "UITextField+BirthDay.h"
 #import "CustomerViewControllerViewController.h"
 #import "NetWorkApi.h"
+#import "SettingViewController.h"
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *LabTotalExpenses;
@@ -34,6 +35,7 @@
     [super viewDidLoad];
     [self setupSubViews];
     [self setupNavBar];
+    [kNotificationCenter addObserver:self selector:@selector(sourceDataNeedUpdate) name:@"downloadDataFromServerSucess" object:nil];
     
 }
 
@@ -41,7 +43,7 @@
 {
     [super viewDidAppear:animated];
     AppDelegate *appd = (AppDelegate *)kAppDelegate;
-    if (!appd.isLogined) {
+    if (!appd.isLogined && [PersonalSettings sharedPersonalSettings].isNeedPswLogin) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         LoginViewViewController *loginVC = [story instantiateViewControllerWithIdentifier:@"LoginViewViewController"];
         [self presentViewController:loginVC animated:YES completion:nil];
@@ -94,17 +96,23 @@
 }
 - (void)goSettings
 {
-    [NetWorkApi getAllFinancialFromServer:^(BOOL isSuccess, NSArray *array) {
-        if (isSuccess) {
-            [[DataBase sharedDataBase] addFinancialsWithArray:array];
-        }
-    }];
+    SettingViewController *settingVC = [SettingViewController new];
+    [self.navigationController pushViewController:settingVC animated:YES];
    
+}
+- (void)sourceDataNeedUpdate
+{
+    NSString *startTime = [[DataBase sharedDataBase] getMinTime];
+    NSString *endTime = [[DataBase sharedDataBase] getMaxTime];
+    self.overViewM = [[DataBase sharedDataBase] getOverViewMessageWithStartTime:startTime EndTime:endTime CutomerName:@"全部"];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)dealloc
+{
+    [kNotificationCenter removeObserver:self];
+}
 
 @end

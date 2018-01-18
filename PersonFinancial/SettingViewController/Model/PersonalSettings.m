@@ -18,10 +18,8 @@ kGCD_SHAREINSTANCE_CLASS(PersonalSettings)
 
 - (void)getSettings
 {
+
     NSString *psw = [kUserDefaults objectForKey:default_key_psw];
-    if (kStringIsEmpty(psw)) {
-        psw = @"900907";
-    }
     self.psw = psw;
     
     NSNumber *isNeedSaveToServer = [kUserDefaults objectForKey:default_key_saveToServer];
@@ -33,9 +31,9 @@ kGCD_SHAREINSTANCE_CLASS(PersonalSettings)
     
     NSNumber *isNeedPswLogin = [kUserDefaults objectForKey:default_key_loginNeedPsw];
     if (!isNeedPswLogin) {
-        self.isNeedPswLogin = YES;
+        self.isNeedPswLogin = NO;
     }else{
-        self.isNeedPswLogin = [isNeedSaveToServer boolValue];
+        self.isNeedPswLogin = [isNeedPswLogin boolValue];
     }
 }
 

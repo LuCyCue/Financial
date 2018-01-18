@@ -30,5 +30,7 @@ kGCD_SHAREINSTANCE_HEADER(NetWorkApi)
 
 + (void)getAllFinancialFromServer:(NetArrayResultBlock)callBack;
 
++ (void)registerUser:(NSString *)userName  Password:(NSString *)psw  Result:(NetBoolResultBlock)callBack;
+
 
 @end

@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initIQKeyBoardManager];
-    [PersonalSettings sharedPersonalSettings];
+    [[PersonalSettings sharedPersonalSettings] getSettings];
     [NetWorkApi ApiRegister];
     [SVProgressHUD setMinimumDismissTimeInterval:1.0];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
@@ -41,7 +41,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    if(!self.isLogined){
+    if(!self.isLogined && [PersonalSettings sharedPersonalSettings].isNeedPswLogin){
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         LoginViewViewController *loginVC = [story instantiateViewControllerWithIdentifier:@"LoginViewViewController"];
         [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
@@ -77,5 +77,4 @@
     keyboardManager.keyboardDistanceFromTextField = 10.0f; // 输入框距离键盘的距离
     
 }
-
 @end
