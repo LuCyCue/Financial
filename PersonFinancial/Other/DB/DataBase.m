@@ -287,7 +287,7 @@ static DataBase *_DBCtl = nil;
     [_db open];
     
     NSMutableArray *dataArray = [[NSMutableArray alloc] init];
-    NSString *sql = [NSString stringWithFormat:@"SELECT %@ FROM t_financial",dbKey_customer];;
+    NSString *sql = [NSString stringWithFormat:@"SELECT DISTINCT %@ FROM t_financial",dbKey_customer];;
   
     FMResultSet *res = [_db executeQuery:sql];
     

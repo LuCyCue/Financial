@@ -41,7 +41,7 @@
     DisplayModel *model3 = [DisplayModel displayModelWithTitle:@"件数:" Content:_pieces > 0? [NSString stringWithFormat:@"%ld",(long)_pieces]:@""];
     DisplayModel *model4 = [DisplayModel displayModelWithTitle:@"售价:" Content:_price > 0? [NSString stringWithFormat:@"%.1f",_price] : @""];
     DisplayModel *model5 = [DisplayModel displayModelWithTitle:@"进价:" Content:_purchasePrice > 0? [NSString stringWithFormat:@"%.1f",_purchasePrice] : @""];
-    DisplayModel *model6 = [DisplayModel displayModelWithTitle:@"利润:" Content:_profit > 0? [NSString stringWithFormat:@"%.1f",_profit]:@""];
+    DisplayModel *model6 = [DisplayModel displayModelWithTitle:@"利润:" Content:_profit != 0? [NSString stringWithFormat:@"%.1f",_profit]:@""];
     DisplayModel *model7 = [DisplayModel displayModelWithTitle:@"原价:" Content:_originalPrice > 0? [NSString stringWithFormat:@"%.1f",_originalPrice]:@""];
     DisplayModel *model8 = [DisplayModel displayModelWithTitle:@"顾客:" Content:_customer];
     DisplayModel *model9 = [DisplayModel displayModelWithTitle:@"时间:" Content:_time];
