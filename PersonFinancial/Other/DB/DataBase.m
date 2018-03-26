@@ -95,15 +95,15 @@ static DataBase *_DBCtl = nil;
     NSString *FinancialSql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS 't_financial' ('id' INTEGER PRIMARY KEY   NOT NULL ,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' INTEGER,'%@' REAL,'%@' REAL,'%@' REAL,'%@' REAL,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' BLOB )",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
     [_db executeUpdate:FinancialSql];
     
-    NSString *alertStr = [NSString stringWithFormat:@"ALTER TABLE t_financial ADD %@ TEXT",dbKey_size];
-    BOOL worked = [_db executeUpdate:alertStr];
-    if(worked){
-        NSLog(@"插入成功");
-    }else{
-        NSLog(@"插入失败");
+    if (![_db columnExists:dbKey_size inTableWithName:@"t_financial"]){
+        NSString *alertStr = [NSString stringWithFormat:@"ALTER TABLE t_financial ADD %@ TEXT",dbKey_size];
+        BOOL worked = [_db executeUpdate:alertStr];
+        if(worked){
+            NSLog(@"插入成功");
+        }else{
+            NSLog(@"插入失败");
+        }
     }
-    
-    
     [_db close];
 
 }
