@@ -67,14 +67,18 @@
 /**
  备注
  */
-@property (nonatomic, strong)    NSString  *remarks;
+@property (nonatomic, copy)    NSString  *remarks;
 /**
  附属照片
  */
 @property (nonatomic, strong)    UIImage   *attachedPhoto;
 
 //服务器对应id
-@property (nonatomic, strong)    NSString  *objectId;
+@property (nonatomic, copy)    NSString  *objectId;
+/**
+ 尺码
+ */
+@property (nonatomic, copy)    NSString   *size;
 
 
 

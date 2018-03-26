@@ -30,6 +30,7 @@
     detailM.remarks = self.remarks;
     detailM.attachedPhoto = self.attachedPhoto;
     detailM.objectId = self.objectId;
+    detailM.size = self.size;
     return detailM;
     
 }
@@ -39,6 +40,7 @@
     DisplayModel *model1 = [DisplayModel displayModelWithTitle:@"产品号:" Content:_productNum];
     DisplayModel *model2 = [DisplayModel displayModelWithTitle:@"颜色:" Content:_color];
     DisplayModel *model3 = [DisplayModel displayModelWithTitle:@"件数:" Content:_pieces > 0? [NSString stringWithFormat:@"%ld",(long)_pieces]:@""];
+    DisplayModel *model3A = [DisplayModel displayModelWithTitle:@"尺码:" Content:_size];
     DisplayModel *model4 = [DisplayModel displayModelWithTitle:@"售价:" Content:_price > 0? [NSString stringWithFormat:@"%.1f",_price] : @""];
     DisplayModel *model5 = [DisplayModel displayModelWithTitle:@"进价:" Content:_purchasePrice > 0? [NSString stringWithFormat:@"%.1f",_purchasePrice] : @""];
     DisplayModel *model6 = [DisplayModel displayModelWithTitle:@"利润:" Content:_profit != 0? [NSString stringWithFormat:@"%.1f",_profit]:@""];
@@ -51,7 +53,7 @@
    // DisplayModel *model13 = [DisplayModel displayModelWithTitle:@"附件图片:" Content:_attachedPhoto];
     
     
-    return @[model0,model1,model2,model3,model4,model5,model6,model7,model8,model9,model10,model11,model12];
+    return @[model0,model1,model2,model3,model3A,model4,model5,model6,model7,model8,model9,model10,model11,model12];
 }
 
 - (void)changePropertyWithDisplayModel:(DisplayModel *)display
@@ -73,7 +75,6 @@
         _profit = (_price - _purchasePrice) * _pieces;
     }else if([display.title isEqualToString:@"利润:"]){
         self.profit = [display.content floatValue];
-        
     }else if([display.title isEqualToString:@"原价:"]){
         self.originalPrice = [display.content floatValue];
     }else if([display.title isEqualToString:@"顾客:"]){
@@ -86,6 +87,8 @@
         self.address = display.content;
     }else if([display.title isEqualToString:@"备注:"]){
         self.remarks = display.content;
+    }else if([display.title isEqualToString:@"尺码:"]){
+        self.size = display.content;
     }
 }
 

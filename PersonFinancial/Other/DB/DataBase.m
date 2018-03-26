@@ -95,6 +95,14 @@ static DataBase *_DBCtl = nil;
     NSString *FinancialSql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS 't_financial' ('id' INTEGER PRIMARY KEY   NOT NULL ,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' INTEGER,'%@' REAL,'%@' REAL,'%@' REAL,'%@' REAL,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' TEXT,'%@' BLOB )",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
     [_db executeUpdate:FinancialSql];
     
+    NSString *alertStr = [NSString stringWithFormat:@"ALTER TABLE t_financial ADD %@ TEXT",dbKey_size];
+    BOOL worked = [_db executeUpdate:alertStr];
+    if(worked){
+        NSLog(@"插入成功");
+    }else{
+        NSLog(@"插入失败");
+    }
+    
     
     [_db close];
 
@@ -105,8 +113,8 @@ static DataBase *_DBCtl = nil;
     [_db open];
     
     NSData *imageData = UIImagePNGRepresentation(financialM.attachedPhoto);
-    NSString *sqlStr = [NSString stringWithFormat:@"INSERT INTO t_financial (%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",@"id",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
-    [_db executeUpdate:sqlStr,@(financialM.ID),financialM.objectId,financialM.productName,financialM.productNum,financialM.color,@(financialM.pieces),@(financialM.price),@(financialM.purchasePrice),@(financialM.originalPrice),@(financialM.profit),financialM.customer,financialM.time,financialM.telephonNum,financialM.address,financialM.remarks,imageData];
+    NSString *sqlStr = [NSString stringWithFormat:@"INSERT INTO t_financial (%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",@"id",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture,dbKey_size];
+    [_db executeUpdate:sqlStr,@(financialM.ID),financialM.objectId,financialM.productName,financialM.productNum,financialM.color,@(financialM.pieces),@(financialM.price),@(financialM.purchasePrice),@(financialM.originalPrice),@(financialM.profit),financialM.customer,financialM.time,financialM.telephonNum,financialM.address,financialM.remarks,imageData,financialM.size];
     
     [_db close];
 }
@@ -141,8 +149,8 @@ static DataBase *_DBCtl = nil;
     [_db open];
     
     NSData *imageData = UIImagePNGRepresentation(financialM.attachedPhoto);
-    NSString *sqlStr = [NSString stringWithFormat:@"UPDATE t_financial SET %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=? WHERE id=?",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture];
-    [_db executeUpdate:sqlStr,financialM.objectId,financialM.productName,financialM.productNum,financialM.color,@(financialM.pieces),@(financialM.price),@(financialM.purchasePrice),@(financialM.originalPrice),@(financialM.profit),financialM.customer,financialM.time,financialM.telephonNum,financialM.address,financialM.remarks,imageData,@(financialM.ID)];
+    NSString *sqlStr = [NSString stringWithFormat:@"UPDATE t_financial SET %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=? WHERE id=?",dbKey_objectId,dbKey_productName,dbKey_productNum,dbKey_color,dbKey_pieces,dbKey_price,dbKey_puchasePrice,dbKey_originalPrice,dbKey_profit,dbKey_customer,dbKey_time,dbKey_telePhoneNum,dbKey_address,dbKey_remarks,dbKey_attachedPicture,dbKey_size];
+    [_db executeUpdate:sqlStr,financialM.objectId,financialM.productName,financialM.productNum,financialM.color,@(financialM.pieces),@(financialM.price),@(financialM.purchasePrice),@(financialM.originalPrice),@(financialM.profit),financialM.customer,financialM.time,financialM.telephonNum,financialM.address,financialM.remarks,imageData,financialM.size,@(financialM.ID)];
     
     [_db close];
     
@@ -157,23 +165,7 @@ static DataBase *_DBCtl = nil;
     FMResultSet *res = [_db executeQuery:@"SELECT * FROM t_financial ORDER BY time DESC"];
     
     while ([res next]) {
-        FinancialDetail *financialM = [[FinancialDetail alloc] init];
-        financialM.ID = [res intForColumn:@"id"];
-        financialM.objectId = [res stringForColumn:dbKey_objectId];
-        financialM.productName = [res stringForColumn:dbKey_productName];
-        financialM.productNum = [res stringForColumn:dbKey_productNum];
-        financialM.color =  [res stringForColumn:dbKey_color];
-        financialM.pieces =  [res intForColumn:dbKey_pieces];
-        financialM.price = [res doubleForColumn:dbKey_price];
-        financialM.purchasePrice = [res doubleForColumn:dbKey_puchasePrice];
-        financialM.originalPrice = [res doubleForColumn:dbKey_originalPrice];
-        financialM.profit = [res doubleForColumn:dbKey_profit];
-        financialM.customer = [res stringForColumn:dbKey_customer];
-        financialM.time = [res stringForColumn:dbKey_time];
-        financialM.telephonNum = [res stringForColumn:dbKey_telePhoneNum];
-        financialM.address = [res stringForColumn:dbKey_address];
-        financialM.remarks = [res stringForColumn:dbKey_remarks];
-        financialM.attachedPhoto = [UIImage imageWithData:[res dataForColumn:dbKey_attachedPicture]];
+        FinancialDetail *financialM = [self FMResultTransform2Model:res];
         [dataArray addObject:financialM];
         
     }
@@ -215,24 +207,8 @@ static DataBase *_DBCtl = nil;
     FMResultSet *res = [_db executeQuery:sql];
     
     while ([res next]) {
-        FinancialDetail *financialM = [[FinancialDetail alloc] init];
-        financialM.ID = [res intForColumn:@"id"];
-        financialM.productName = [res stringForColumn:dbKey_productName];
-        financialM.productNum = [res stringForColumn:dbKey_productNum];
-        financialM.color =  [res stringForColumn:dbKey_color];
-        financialM.pieces =  [res intForColumn:dbKey_pieces];
-        financialM.price = [res doubleForColumn:dbKey_price];
-        financialM.purchasePrice = [res doubleForColumn:dbKey_puchasePrice];
-        financialM.originalPrice = [res doubleForColumn:dbKey_originalPrice];
-        financialM.profit = [res doubleForColumn:dbKey_profit];
-        financialM.customer = [res stringForColumn:dbKey_customer];
-        financialM.time = [res stringForColumn:dbKey_time];
-        financialM.telephonNum = [res stringForColumn:dbKey_telePhoneNum];
-        financialM.address = [res stringForColumn:dbKey_address];
-        financialM.remarks = [res stringForColumn:dbKey_remarks];
-        financialM.attachedPhoto = [UIImage imageWithData:[res dataForColumn:dbKey_attachedPicture]];
+        FinancialDetail *financialM = [self FMResultTransform2Model:res];
         [dataArray addObject:financialM];
-        
     }
     
     [_db close];
@@ -257,23 +233,7 @@ static DataBase *_DBCtl = nil;
     FMResultSet *res = [_db executeQuery:sql];
     
     while ([res next]) {
-        FinancialDetail *financialM = [[FinancialDetail alloc] init];
-        financialM.ID = [res intForColumn:@"id"];
-        financialM.objectId = [res stringForColumn:dbKey_objectId];
-        financialM.productName = [res stringForColumn:dbKey_productName];
-        financialM.productNum = [res stringForColumn:dbKey_productNum];
-        financialM.color =  [res stringForColumn:dbKey_color];
-        financialM.pieces =  [res intForColumn:dbKey_pieces];
-        financialM.price = [res doubleForColumn:dbKey_price];
-        financialM.purchasePrice = [res doubleForColumn:dbKey_puchasePrice];
-        financialM.originalPrice = [res doubleForColumn:dbKey_originalPrice];
-        financialM.profit = [res doubleForColumn:dbKey_profit];
-        financialM.customer = [res stringForColumn:dbKey_customer];
-        financialM.time = [res stringForColumn:dbKey_time];
-        financialM.telephonNum = [res stringForColumn:dbKey_telePhoneNum];
-        financialM.address = [res stringForColumn:dbKey_address];
-        financialM.remarks = [res stringForColumn:dbKey_remarks];
-        financialM.attachedPhoto = [UIImage imageWithData:[res dataForColumn:dbKey_attachedPicture]];
+        FinancialDetail *financialM = [self FMResultTransform2Model:res];
         [dataArray addObject:financialM];
         
     }
@@ -335,4 +295,30 @@ static DataBase *_DBCtl = nil;
     [_db close];
     return max;
 }
+
+#pragma mark --Other Methods
+
+- (FinancialDetail *)FMResultTransform2Model:(FMResultSet*)res
+{
+    FinancialDetail *financialM = [[FinancialDetail alloc] init];
+    financialM.ID = [res intForColumn:@"id"];
+    financialM.productName = [res stringForColumn:dbKey_productName];
+    financialM.productNum = [res stringForColumn:dbKey_productNum];
+    financialM.color =  [res stringForColumn:dbKey_color];
+    financialM.pieces =  [res intForColumn:dbKey_pieces];
+    financialM.price = [res doubleForColumn:dbKey_price];
+    financialM.purchasePrice = [res doubleForColumn:dbKey_puchasePrice];
+    financialM.originalPrice = [res doubleForColumn:dbKey_originalPrice];
+    financialM.profit = [res doubleForColumn:dbKey_profit];
+    financialM.customer = [res stringForColumn:dbKey_customer];
+    financialM.time = [res stringForColumn:dbKey_time];
+    financialM.telephonNum = [res stringForColumn:dbKey_telePhoneNum];
+    financialM.address = [res stringForColumn:dbKey_address];
+    financialM.remarks = [res stringForColumn:dbKey_remarks];
+    financialM.attachedPhoto = [UIImage imageWithData:[res dataForColumn:dbKey_attachedPicture]];
+    financialM.size = [res stringForColumn:dbKey_size];
+    return financialM;
+}
+
+
 @end

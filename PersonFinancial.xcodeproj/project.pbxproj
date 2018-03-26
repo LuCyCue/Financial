@@ -914,7 +914,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N4V4GZTR76;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonFinancial/PersonFinancial.pch";
 				INFOPLIST_FILE = PersonFinancial/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -931,7 +931,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N4V4GZTR76;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PersonFinancial/PersonFinancial.pch";
 				INFOPLIST_FILE = PersonFinancial/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

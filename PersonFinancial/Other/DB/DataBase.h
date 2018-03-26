@@ -25,6 +25,7 @@
 #define dbKey_address             @"address"
 #define dbKey_attachedPicture     @"attachedPicture"
 #define dbKey_objectId            @"objectId"
+#define dbKey_size                @"size"
 
 @interface DataBase : NSObject
 
